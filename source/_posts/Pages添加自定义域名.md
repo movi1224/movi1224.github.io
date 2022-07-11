@@ -53,5 +53,6 @@ tags:
 * 创建 dns-example.com 的子域名。
 ![渲染结果](https://s2.51cto.com/images/blog/202105/20/fcaa518bb5d34d486ed8b981155c03ab.png?x-oss-process=image/watermark,size_16,text_QDUxQ1RP5Y2a5a6i,color_FFFFFF,t_30,g_se,x_10,y_10,shadow_20,type_ZmFuZ3poZW5naGVpdGk=)
 
+---
 ## Ref:
 > [使用自定义域名来访问GitHub上部署的hugo博客——GitHub Pages](https://blog.51cto.com/xdr630/2795777)
