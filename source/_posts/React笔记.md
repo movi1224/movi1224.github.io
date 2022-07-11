@@ -1,7 +1,12 @@
 ---
 title: React笔记
 date: 2022-07-10 16:23:53
+categories:
+- [Study, React]
 tags:
+- react
+- frontend
+- notes
 ---
 
 > 以下是观看尚硅谷React课程所做的笔记。
@@ -25,6 +30,7 @@ React用于构建用户界面的JS库。是一个将数据渲染为HTML视图的
 > 在学习之前最好看一下关于npm的知识：下面是我在网上看见的一个写的还不错的npm的文章
 >
 > [npm](https://blog.csdn.net/qq_25502269/article/details/79346545)
+<!-- more -->
 
 # React入门
 
