@@ -14,6 +14,7 @@ tags:
 
 1. 首先是用ping命令找到存放你的github pages的主机的IP地址(或者去Github Pages Doc里找)，在终端里面用命令ping
     xxx.github.io便可完成，下图中红框内的就是我们要找的IP地址：
+<!-- more -->
 
 ![使用自定义域名来访问GitHub上部署的hugo博客——GitHub Pages_GitHub](https://s2.51cto.com/images/blog/202105/20/0512eaedbd589700a91cc59d3e37b64c.png?x-oss-process=image/watermark,size_16,text_QDUxQ1RP5Y2a5a6i,color_FFFFFF,t_30,g_se,x_10,y_10,shadow_20,type_ZmFuZ3poZW5naGVpdGk=)
 
