@@ -105,3 +105,7 @@ deploy:
   type: git
   repo: https://github.com/movi1224/movi1224.github.io
   branch: master
+
+symbols_count_time:
+  symbols: true
+  time: true
