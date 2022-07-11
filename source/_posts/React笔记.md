@@ -11,7 +11,7 @@ tags:
 
 > 以下是观看尚硅谷React课程所做的笔记。
 >
-> [尚硅谷React](https://www.bilibili.com/video/BV1wy4y1D7JT?p=43&t=5)
+> [视频链接](https://www.bilibili.com/video/BV1wy4y1D7JT?p=43&t=5)
 
 # React简介
 
@@ -24,13 +24,13 @@ React用于构建用户界面的JS库。是一个将数据渲染为HTML视图的
 1.原生JS操作DOM繁琐，效率低
 
 2.使用JS直接操作DOM,浏览器会进行大量的重绘重排
+<!-- more -->
 
 3.原生JS没有组件化编码方案，代码复用低
 
 > 在学习之前最好看一下关于npm的知识：下面是我在网上看见的一个写的还不错的npm的文章
 >
 > [npm](https://blog.csdn.net/qq_25502269/article/details/79346545)
-<!-- more -->
 
 # React入门
 
