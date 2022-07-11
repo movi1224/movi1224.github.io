@@ -75,7 +75,7 @@ babel.min.js
 
 这样，就会在页面中的这个div容器上添加这个h1.
 
-![渲染结果](./react/1611196030416.png)
+![渲染结果](/images/react/1611196030416.png)
 
 ## JSX基础语法
 
@@ -185,7 +185,7 @@ function Welcome(props) {
 ReactDOM.Render(<Welcom name = "ss" />,document.getElementById("div"));
 ```
 
-![结果](./react/1611211670211.png)
+![结果](/images/react/1611211670211.png)
 
 让我们来回顾一下这个例子中发生了什么：
 
@@ -638,7 +638,7 @@ Refs主要提供了三种方式：
 <input ref={self =>{ this.dian = self;console.log(self)}}  placeholder="点击弹出" />
 ```
 
-![input标签](./react/1611495051999.png)
+![input标签](/images/react/1611495051999.png)
 
 也可以将函数提取出来，在ref中进行调用
 
@@ -671,7 +671,7 @@ MyRef = React.createRef();
 MyRef1 = React.createRef();
 ```
 
-![API](./react/1611495597978.png)
+![API](/images/react/1611495597978.png)
 
 然后就可以使用了
 
@@ -814,7 +814,7 @@ class Login extends React.Component{
 
 如下图是旧生命周期的结构图：
 
-![旧生命周期](./react/1611490156766.png)
+![旧生命周期](/images/react/1611490156766.png)
 
 我们通过一个案例更详细的了解这个生命周期：
 
@@ -895,11 +895,11 @@ class Login extends React.Component{
 
 当我们刚刚打开控制台的时候，组件第一次加载：
 
-![组件第一次加载](./react/1611568192158.png)
+![组件第一次加载](/images/react/1611568192158.png)
 
 当我们点击按钮更新sate的时候：
 
-![更新state](./react/1611568250881.png)
+![更新state](/images/react/1611568250881.png)
 
 ## （新）
 
@@ -917,7 +917,7 @@ class Login extends React.Component{
 
 如下图是新的生命周期：
 
-![新生命周期](./react/1611651795885.png)
+![新生命周期](/images/react/1611651795885.png)
 
 从图上可以看出，新生命周期和旧生命周期的区别主要有：
 
@@ -947,7 +947,7 @@ class Login extends React.Component{
 
 **案例：在一个区域内，定时的输出以行话，如果内容大小超过了区域大小，就出现滚动条，但是内容不进行移动 **
 
-![案例](./react/BeforeGender.gif)
+![案例](/images/react/BeforeGender.gif)
 
 如上面的动图：区域内部的内容展现没有变化，但是可以看见滚动条在变化，也就是说上面依旧有内容在输出，只不过不在这个区域内部展现。
 
@@ -1041,7 +1041,7 @@ this.state.person.map((preson,index)=>{
 
 如下图展现在页面中：
 
-![原始对象数组](./react/1611800406864.png)
+![原始对象数组](/images/react/1611800406864.png)
 
 此时，我们想在点击按钮之后动态的添加一个对象，并且放入到li标签中，在重新渲染到页面中。
 
@@ -1058,11 +1058,11 @@ addObject = () =>{
 
 如下动图所示：
 
- ![原始对象数组](./react/addObject.gif) 
+ ![原始对象数组](/images/react/addObject.gif) 
 
 这样看，虽然完成了功能。但是其实存在效率上的问题，	我们先来看一下两个前后组件状态的变化：
 
-![组件状态的变化](./react/1611800988496.png)
+![组件状态的变化](/images/react/1611800988496.png)
 
 我们发现，组件第一个变成了王五，张三和李四都移下去了。因为我们使用Index作为Key，这三个标签的key也就发生了改变【张三原本的key是0，现在变成了1，李四的key原本是1，现在变成了2，王五变成了0】在组件更新状态重新渲染的时候，就出现了问题：
 
@@ -1121,7 +1121,7 @@ react提供了一个用于创建react项目的脚手架库：create-react-app
 
 在这一步，有可能会出现：
 
-![不是内部命令](./react/1611803687193.png)
+![不是内部命令](/images/react/1611803687193.png)
 
 这样可以直接使用：npx create-react-app 项目名 
 
@@ -1133,17 +1133,17 @@ cd hello
 
 npm start   //启动这个项目
 
-![启动成功](./react/1611816095069.png)
+![启动成功](/images/react/1611816095069.png)
 
 这个时会自动的打开浏览器，展现这个项目：
 
-![第一个脚手架项目](./react/1611816150630.png)
+![第一个脚手架项目](/images/react/1611816150630.png)
 
 ## 项目的目录结构
 
 我们先来看一下public这个目录下面的结构：
 
-![public](./react/1611817630266.png)
+![public](/images/react/1611817630266.png)
 
 这里面最主要的还是这个Index.html文件：
 
@@ -1181,7 +1181,7 @@ npm start   //启动这个项目
 
 src文件：
 
-![src文件](./react/1611818262317.png)
+![src文件](/images/react/1611818262317.png)
 
 这里面其实最主要的就是App.js以及index.js，一个是组件，一个是将组件渲染到页面中的。
 
@@ -1222,7 +1222,7 @@ ReactDOM.render(<App />,document.getElementById("root"))
 
 这样在重新启动应用，就成功了。
 
-![第一个脚手架应用](./react/1611820194124.png)
+![第一个脚手架应用](/images/react/1611820194124.png)
 
 我们也不建议这样直接将内容放入App组件中，尽量还是用内部组件。
 
@@ -1615,11 +1615,11 @@ match:
 
 这里面会有一个样式：
 
-![样式表](./react/1612316916900.png)
+![样式表](/images/react/1612316916900.png)
 
 此时，加载该样式的路径为：
 
-![加载样式路径](./react/1612317786643.png)
+![加载样式路径](/images/react/1612317786643.png)
 
 但是在写路由的时候，有的时候就会出现多级目录，
 
@@ -1633,7 +1633,7 @@ match:
 
 样式因为路径问题加载失败，此时页面返回public下面的Index.html
 
-![加载页面失败](./react/1612317880916.png)
+![加载页面失败](/images/react/1612317880916.png)
 
 解决这个问题，有三个方法：
 
@@ -1693,7 +1693,7 @@ react默认是开启模糊匹配的。
 
 在配置好路由，最开始打开页面的时候，应该是不会匹配到任意一个组件。这个时候页面就显得极其不合适，此时应该默认的匹配到一个组件。
 
-![空组件](./react/RouterDef.gif)
+![空组件](/images/react/RouterDef.gif)
 
 此时就需要使用Redirect进行默认匹配了。如下的代码就是默认匹配/home路径所到的组件
 
@@ -1709,7 +1709,7 @@ react默认是开启模糊匹配的。
 
 就可以做到如下的效果：
 
-## ![设置默认值](./react/RouterSetDef.gif)嵌套路由
+## ![设置默认值](/images/react/RouterSetDef.gif)嵌套路由
 
 简单来说就是在一个路由组件中又使用了一个路由，就形成了嵌套路由。
 
