@@ -7,6 +7,7 @@ tags:
 ---
 
 ## 两种方法
+<!-- more -->
 
 ### 第一种方法
 * 在配置文件**_config.yml**里修改：`post_asset_folder: true`
