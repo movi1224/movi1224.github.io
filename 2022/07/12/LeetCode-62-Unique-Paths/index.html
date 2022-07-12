@@ -22,27 +22,31 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":true,"nav":null,"activeClass":"disqus"},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+    <meta name="description" content="62. Unique Paths###Question:-There is a robot on an m x n grid. The robot is initially located at the top-left corner (i.e., grid[0][0]). The robot tries to move to the bottom-right corner (i.e., grid">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://example.com/2022/07/10/hello-world/index.html">
+<meta property="og:title" content="LeetCode 62: Unique Paths">
+<meta property="og:url" content="http://example.com/2022/07/12/LeetCode-62-Unique-Paths/index.html">
 <meta property="og:site_name" content="Moviii&#39;s Blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="62. Unique Paths###Question:-There is a robot on an m x n grid. The robot is initially located at the top-left corner (i.e., grid[0][0]). The robot tries to move to the bottom-right corner (i.e., grid">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-07-10T18:00:00.000Z">
-<meta property="article:modified_time" content="2022-07-12T02:43:15.424Z">
+<meta property="og:image" content="https://assets.leetcode.com/uploads/2018/10/22/robot_maze.png">
+<meta property="article:published_time" content="2022-07-12T04:01:18.000Z">
+<meta property="article:modified_time" content="2022-07-12T04:47:39.264Z">
 <meta property="article:author" content="moviii">
+<meta property="article:tag" content="study">
+<meta property="article:tag" content="leetcode">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://assets.leetcode.com/uploads/2018/10/22/robot_maze.png">
 
 
-<link rel="canonical" href="http://example.com/2022/07/10/hello-world/">
+<link rel="canonical" href="http://example.com/2022/07/12/LeetCode-62-Unique-Paths/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2022/07/10/hello-world/","path":"2022/07/10/hello-world/","title":"Hello World"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2022/07/12/LeetCode-62-Unique-Paths/","path":"2022/07/12/LeetCode-62-Unique-Paths/","title":"LeetCode 62: Unique Paths"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Hello World | Moviii's Blog</title>
+<title>LeetCode 62: Unique Paths | Moviii's Blog</title>
   
 
   <script src="/js/third-party/analytics/baidu-analytics.js"></script>
@@ -147,7 +151,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#62-Unique-Paths"><span class="nav-number">1.</span> <span class="nav-text">62. Unique Paths</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Example-1"><span class="nav-number">1.1.</span> <span class="nav-text">Example 1:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Example-2"><span class="nav-number">1.2.</span> <span class="nav-text">Example 2:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E6%B3%95"><span class="nav-number">1.3.</span> <span class="nav-text">解法:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A5%BD%E7%90%86%E8%A7%A3%E7%89%88%E6%9C%AC"><span class="nav-number">1.4.</span> <span class="nav-text">好理解版本</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -223,7 +227,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/10/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/12/LeetCode-62-Unique-Paths/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.svg">
@@ -236,12 +240,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="Hello World | Moviii's Blog">
+      <meta itemprop="name" content="LeetCode 62: Unique Paths | Moviii's Blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Hello World<a href="https://github.com/movi1224/movi1224.github.io/edit/myblog/source/_posts/hello-world.md" class="post-edit-link" title="Edit this post" rel="noopener" target="_blank"><i class="fa fa-pen-nib"></i></a>
+          LeetCode 62: Unique Paths<a href="https://github.com/movi1224/movi1224.github.io/edit/myblog/source/_posts/LeetCode-62-Unique-Paths.md" class="post-edit-link" title="Edit this post" rel="noopener" target="_blank"><i class="fa fa-pen-nib"></i></a>
         </h1>
 
         <div class="post-meta-container">
@@ -251,15 +255,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
+      
 
-      <time title="Created: 2022-07-10 14:00:00" itemprop="dateCreated datePublished" datetime="2022-07-10T14:00:00-04:00">2022-07-10</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-07-11 22:43:15" itemprop="dateModified" datetime="2022-07-11T22:43:15-04:00">2022-07-11</time>
+      <time title="Created: 2022-07-12 00:01:18 / Modified: 00:47:39" itemprop="dateCreated datePublished" datetime="2022-07-12T00:01:18-04:00">2022-07-12</time>
     </span>
 
   
@@ -278,8 +276,8 @@
       </span>
       <span class="post-meta-item-text">Disqus: </span>
     
-    <a title="disqus" href="/2022/07/10/hello-world/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2022/07/10/hello-world/" itemprop="commentCount"></span>
+    <a title="disqus" href="/2022/07/12/LeetCode-62-Unique-Paths/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2022/07/12/LeetCode-62-Unique-Paths/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -290,14 +288,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>367</span>
+      <span>1.7k</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>1 mins.</span>
+      <span>2 mins.</span>
     </span>
 </div>
 
@@ -308,20 +306,59 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<span id="more"></span>
+        <h2 id="62-Unique-Paths"><a href="#62-Unique-Paths" class="headerlink" title="62. Unique Paths"></a>62. Unique Paths</h2><p>###Question:<br>-There is a robot on an <code>m x n</code> grid. The robot is initially located at the top-left corner (i.e., <code>grid[0][0]</code>). The robot tries to move to the bottom-right corner (i.e., <code>grid[m - 1][n - 1]</code>). The robot can only move either down or right at any point in time.</p>
+<p>Given the two integers <code>m</code> and <code>n</code>, return the number of possible unique paths that the robot can take to reach the bottom-right corner.</p>
+<p>The test cases are generated so that the answer will be less than or equal to 2 * 10<sup>9</sup>.</p>
+<h3 id="Example-1"><a href="#Example-1" class="headerlink" title="Example 1:"></a>Example 1:</h3><p><img data-src="https://assets.leetcode.com/uploads/2018/10/22/robot_maze.png"></p>
+<pre><code>Input: m = 3, n = 7
+Output: 28
+</code></pre>
+<h3 id="Example-2"><a href="#Example-2" class="headerlink" title="Example 2:"></a>Example 2:</h3><pre><code>Input: m = 3, n = 2
+Output: 3
+Explanation: From the top-left corner, there are a total of 3 ways to reach the bottom-right corner:
+1. Right -&gt; Down -&gt; Down
+2. Down -&gt; Down -&gt; Right
+3. Down -&gt; Right -&gt; Down
+</code></pre>
+<h3 id="解法"><a href="#解法" class="headerlink" title="解法:"></a>解法:</h3><ol>
+<li><p><strong>理解:</strong> 不难发现，机器人从左上角走到右下角，需要向下走<code>m - 1</code>步，向右走<code>n - 1</code>步</p>
+</li>
+<li><p><strong>动态规划:</strong></p>
+</li>
+</ol>
+<ul>
+<li><p>建立二维数组dp，令<code>dp[i][j]</code>表示到达 i, j的最多路径数。 </p>
+</li>
+<li><p>初始化：对于第一行 <code>dp[0][j]</code>，或者第一列 <code>dp[i][0]</code>，都只有一条路径。 </p>
+</li>
+<li><p>机器人到达位置<code>(i, j)</code>有两种方式：从<code>(i - 1, j)</code>下移和从<code>(i, j - 1)</code>右移。状态转移方程为： </p>
+<p>  <code>d p [ i ] [ j ] = d p [ i − 1 ] [ j ] + d p [ i ] [ j − 1 ]</code></p>
+</li>
+</ul>
+<ol start="3">
+<li><strong>复杂度分析:</strong></li>
+</ol>
+<ul>
+<li>时间复杂度：*O(mn)*。遍历dp数组进行动态规划。</li>
+<li>空间复杂度：*O(mn)*。创建的dp数组的大小。</li>
+</ul>
+<ul>
+<li><h3 id="好理解版本"><a href="#好理解版本" class="headerlink" title="好理解版本"></a>好理解版本</h3></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * @param &#123;number&#125; m</span><br><span class="line"> * @param &#123;number&#125; n</span><br><span class="line"> * @return &#123;number&#125;</span><br><span class="line"> */</span><br><span class="line">var uniquePaths = function(m, n) &#123;</span><br><span class="line">    // 创建容器数组</span><br><span class="line">    let dp = Array(m).fill(0).map(() =&gt; Array(n).fill(0))</span><br><span class="line"></span><br><span class="line">    // 最上一行和最下一行初始值为1</span><br><span class="line">    for (let i = 0; i &lt; m; i++)&#123;</span><br><span class="line">        for (let j = 0; j &lt; n; j++)&#123;</span><br><span class="line">            if (i === 0 | j === 0) dp[i][j] = 1</span><br><span class="line">            else&#123;</span><br><span class="line">                dp[i][j] = dp[i-1][j] + dp[i][j-1]</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return dp[m-1][n-1]</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">// 速度 &gt; 80%, 空间 &gt; 40%</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p><em><strong>接下来，还可以将时间复杂度由O(n^2)优化为O(n)，主要由于状态转移方程中，当前状态主要取决于(i - 1)行和(j - 1)列，所以并不需要保存每一行的状态</strong></em></p>
+</li>
+<li><p><em><strong>dp可以优化为一维滚动数组。当第i次遍历到dp[j]时，dp[j]表示到达(i, j)最多的路径数。递推公式为： d p [ j ] + &#x3D; d p [ j − 1 ]</strong></em></p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">var uniquePaths = function(m, n) &#123;</span><br><span class="line">    // 创建容器数组</span><br><span class="line">    let dp = Array(n).fill(0)</span><br><span class="line">    dp[0] = 1</span><br><span class="line"></span><br><span class="line">    // 最上一行和最下一行初始值为1</span><br><span class="line">    for (let i = 0; i &lt; m; i++)&#123;</span><br><span class="line">        for (let j = 1; j &lt; n; j++)&#123;</span><br><span class="line">            dp[j] += dp[j-1]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return dp[n-1]</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">// 速度 &gt; 95%, 空间 &gt; 90%</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+
+
 
     </div>
 
@@ -330,16 +367,20 @@
     
 
     <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/study/" rel="tag"><i class="fa fa-tag"></i> study</a>
+              <a href="/tags/leetcode/" rel="tag"><i class="fa fa-tag"></i> leetcode</a>
+          </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
+                <a href="/2022/07/11/Hexo%E4%B8%AD%E6%B7%BB%E5%8A%A0%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87/" rel="prev" title="Hexo中添加本地图片">
+                  <i class="fa fa-chevron-left"></i> Hexo中添加本地图片
+                </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/07/10/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="next" title="计算机网络">
-                  计算机网络 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>

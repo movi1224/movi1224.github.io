@@ -1,16 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  
-  
-  <title>计算机网络 | moviii&#39;s blog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="HTTP 和 HTTPSHTTP 的基本概念http: 是互联网上应用最为广泛的一种网络协议，是一个客户端和服务器端请求和应答的标准（TCP），用于从 WWW 服务器传输超文本到本地浏览器的超文本传输协议。 HTTP工作原理HTTP协议定义Web客户端如何从Web服务器请求Web页面，以及服务器如何把Web页面传送给客户端。客户端向服务器发送一个请求报文，服务器以一个状态行作为响应。 HTTP请求">
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#233" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#233">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic%7CSacramento:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":true,"nav":null,"activeClass":"disqus"},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="HTTP 和 HTTPSHTTP 的基本概念http: 是互联网上应用最为广泛的一种网络协议，是一个客户端和服务器端请求和应答的标准（TCP），用于从 WWW 服务器传输超文本到本地浏览器的超文本传输协议。 HTTP工作原理HTTP协议定义Web客户端如何从Web服务器请求Web页面，以及服务器如何把Web页面传送给客户端。客户端向服务器发送一个请求报文，服务器以一个状态行作为响应。 HTTP请求">
 <meta property="og:type" content="article">
 <meta property="og:title" content="计算机网络">
 <meta property="og:url" content="http://example.com/2022/07/10/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/index.html">
-<meta property="og:site_name" content="moviii&#39;s blog">
+<meta property="og:site_name" content="Moviii&#39;s Blog">
 <meta property="og:description" content="HTTP 和 HTTPSHTTP 的基本概念http: 是互联网上应用最为广泛的一种网络协议，是一个客户端和服务器端请求和应答的标准（TCP），用于从 WWW 服务器传输超文本到本地浏览器的超文本传输协议。 HTTP工作原理HTTP协议定义Web客户端如何从Web服务器请求Web页面，以及服务器如何把Web页面传送给客户端。客户端向服务器发送一个请求报文，服务器以一个状态行作为响应。 HTTP请求">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c42bc6f45451457fa6d614fb27534516~tplv-k3u1fbpfcp-watermark.image">
@@ -23,88 +39,300 @@
 <meta property="og:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b67bd1f793a3425d9e8a415cae9b7863~tplv-k3u1fbpfcp-watermark.image">
 <meta property="og:image" content="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/77d8ae8e0de44f3aa693f0626a346d4c~tplv-k3u1fbpfcp-watermark.image">
 <meta property="article:published_time" content="2022-07-10T18:51:00.000Z">
-<meta property="article:modified_time" content="2022-07-10T18:52:28.661Z">
-<meta property="article:author" content="Yangkai He">
+<meta property="article:modified_time" content="2022-07-12T02:34:56.590Z">
+<meta property="article:author" content="moviii">
+<meta property="article:tag" content="notes">
+<meta property="article:tag" content="frontend">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c42bc6f45451457fa6d614fb27534516~tplv-k3u1fbpfcp-watermark.image">
-  
-    <link rel="alternate" href="/atom.xml" title="moviii's blog" type="application/atom+xml">
-  
-  
-    <link rel="shortcut icon" href="/favicon.png">
-  
-  
-    
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
 
-  
-  
-<link rel="stylesheet" href="/css/style.css">
 
-  
-    
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+<link rel="canonical" href="http://example.com/2022/07/10/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
 
-  
-<meta name="generator" content="Hexo 6.2.0"></head>
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">moviii&#39;s blog</a>
-      </h1>
-      
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2022/07/10/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/","path":"2022/07/10/计算机网络/","title":"计算机网络"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>计算机网络 | Moviii's Blog</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js"></script>
+  <script async src="https://hm.baidu.com/hm.js?7f70a1c58fcb19d07d3c07f236ebf102"></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Moviii's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">今儿开始写博客</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">7</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">5</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">6</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
         
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#HTTP-%E5%92%8C-HTTPS"><span class="nav-number">1.</span> <span class="nav-text">HTTP 和 HTTPS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP-%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-number">1.0.1.</span> <span class="nav-text">HTTP 的基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="nav-number">1.0.2.</span> <span class="nav-text">HTTP工作原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP%E8%AF%B7%E6%B1%82-x2F-%E5%93%8D%E5%BA%94%E7%9A%84%E6%AD%A5%E9%AA%A4"><span class="nav-number">1.0.3.</span> <span class="nav-text">HTTP请求&#x2F;响应的步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP-%E7%9A%84-5-%E7%A7%8D%E6%96%B9%E6%B3%95"><span class="nav-number">1.0.4.</span> <span class="nav-text">HTTP 的 5 种方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GET%E4%B8%8EPOST%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">1.0.5.</span> <span class="nav-text">GET与POST的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP%E6%8A%A5%E6%96%87%E7%9A%84%E7%BB%84%E6%88%90%E6%88%90%E5%88%86"><span class="nav-number">1.0.6.</span> <span class="nav-text">HTTP报文的组成成分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#https-%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-number">1.0.7.</span> <span class="nav-text">https 的基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#http-%E5%92%8C-https-%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="nav-number">1.0.8.</span> <span class="nav-text">http 和 https 的区别？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#https-%E5%8D%8F%E8%AE%AE%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="nav-number">1.0.8.1.</span> <span class="nav-text">https 协议的工作原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#https-%E5%8D%8F%E8%AE%AE%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="nav-number">1.0.8.2.</span> <span class="nav-text">https 协议的优缺点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP-x2F-IP%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.0.9.</span> <span class="nav-text">TCP&#x2F;IP网络模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B"><span class="nav-number">1.0.10.</span> <span class="nav-text">TCP三次握手</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP-%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B"><span class="nav-number">1.0.11.</span> <span class="nav-text">TCP 四次挥手</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP%E5%92%8CUDP%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">1.0.12.</span> <span class="nav-text">TCP和UDP的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP-%E8%AF%B7%E6%B1%82%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98"><span class="nav-number">1.0.13.</span> <span class="nav-text">HTTP 请求跨域问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Cookie%E3%80%81sessionStorage%E3%80%81localStorage-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">1.0.14.</span> <span class="nav-text">Cookie、sessionStorage、localStorage 的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP%E7%8A%B6%E6%80%81%E7%A0%81%E5%8F%8A%E5%B8%B8%E8%A7%81%E7%8A%B6%E6%80%81%E7%A0%81"><span class="nav-number">1.0.15.</span> <span class="nav-text">HTTP状态码及常见状态码</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP%E7%8A%B6%E6%80%81%E7%A0%81"><span class="nav-number">1.0.15.1.</span> <span class="nav-text">HTTP状态码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E7%8A%B6%E6%80%81%E7%A0%81"><span class="nav-number">1.0.15.2.</span> <span class="nav-text">常见状态码</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8B%E7%BB%8D%E4%B8%8B304%E8%BF%87%E7%A8%8B"><span class="nav-number">1.0.16.</span> <span class="nav-text">介绍下304过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6-%E5%BC%BA%E5%88%B6%E7%BC%93%E5%AD%98-amp-amp-%E5%8D%8F%E5%95%86%E7%BC%93%E5%AD%98"><span class="nav-number">1.0.17.</span> <span class="nav-text">浏览器的缓存机制 强制缓存 &amp;&amp; 协商缓存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP-%E8%AF%B7%E6%B1%82%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98-1"><span class="nav-number">1.0.18.</span> <span class="nav-text">HTTP 请求跨域问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B2%98%E5%8C%85%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90%E4%B8%8E%E5%AF%B9%E7%AD%96"><span class="nav-number">1.0.19.</span> <span class="nav-text">粘包问题分析与对策</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF%E4%B8%8E%E6%9C%8D%E5%8A%A1%E7%AB%AF%E9%95%BF%E8%BF%9E%E6%8E%A5%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F"><span class="nav-number">1.0.20.</span> <span class="nav-text">客户端与服务端长连接的几种方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A9%E7%94%A8Socket%E5%BB%BA%E7%AB%8B%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5%E7%9A%84%E6%AD%A5%E9%AA%A4"><span class="nav-number">1.0.21.</span> <span class="nav-text">利用Socket建立网络连接的步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86RSA"><span class="nav-number">1.0.22.</span> <span class="nav-text">非对称加密RSA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP1%E3%80%81HTTP2%E3%80%81HTTP3"><span class="nav-number">1.0.23.</span> <span class="nav-text">HTTP1、HTTP2、HTTP3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP1-1-%E7%9A%84%E7%BC%BA%E9%99%B7"><span class="nav-number">1.0.24.</span> <span class="nav-text">HTTP1.1 的缺陷</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SPDY-%E5%8D%8F%E8%AE%AE%E4%B8%8E-HTTP-x2F-2-%E7%AE%80%E4%BB%8B"><span class="nav-number">1.0.25.</span> <span class="nav-text">SPDY 协议与 HTTP&#x2F;2 简介</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1%E3%80%81HTTP-x2F-2-%E7%AE%80%E4%BB%8B"><span class="nav-number">1.0.25.1.</span> <span class="nav-text">1、HTTP&#x2F;2 简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2%E3%80%81HTTP-x2F-2-%E6%96%B0%E7%89%B9%E6%80%A7"><span class="nav-number">1.0.25.2.</span> <span class="nav-text">2、HTTP&#x2F;2 新特性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1%E3%80%81%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%BC%A0%E8%BE%93"><span class="nav-number">1.0.25.3.</span> <span class="nav-text">1、二进制传输</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2%E3%80%81Header-%E5%8E%8B%E7%BC%A9"><span class="nav-number">1.0.25.4.</span> <span class="nav-text">2、Header 压缩</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3%E3%80%81%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8"><span class="nav-number">1.0.25.5.</span> <span class="nav-text">3、多路复用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4%E3%80%81Server-Push"><span class="nav-number">1.0.25.6.</span> <span class="nav-text">4、Server Push</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5%E3%80%81%E6%8F%90%E9%AB%98%E5%AE%89%E5%85%A8%E6%80%A7"><span class="nav-number">1.0.25.7.</span> <span class="nav-text">5、提高安全性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6%E3%80%81%E9%98%B2%E6%AD%A2%E5%AF%B9%E5%A4%B4%E9%98%BB%E5%A1%9E"><span class="nav-number">1.0.25.8.</span> <span class="nav-text">6、防止对头阻塞</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP-x2F-2-%E7%9A%84%E7%BC%BA%E7%82%B9"><span class="nav-number">1.0.26.</span> <span class="nav-text">HTTP&#x2F;2 的缺点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP-x2F-3-%E6%96%B0%E7%89%B9%E6%80%A7"><span class="nav-number">1.0.27.</span> <span class="nav-text">HTTP&#x2F;3 新特性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1%E3%80%81HTTP-x2F-3%E7%AE%80%E4%BB%8B"><span class="nav-number">1.0.27.1.</span> <span class="nav-text">1、HTTP&#x2F;3简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2%E3%80%81QUIC%E6%96%B0%E5%8A%9F%E8%83%BD"><span class="nav-number">1.0.27.2.</span> <span class="nav-text">2、QUIC新功能</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">1.0.28.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%90%86%E8%A7%A3xss%EF%BC%8Ccsrf%EF%BC%8Cddos%E6%94%BB%E5%87%BB%E5%8E%9F%E7%90%86%E4%BB%A5%E5%8F%8A%E9%81%BF%E5%85%8D%E6%96%B9%E5%BC%8F"><span class="nav-number">1.0.29.</span> <span class="nav-text">理解xss，csrf，ddos攻击原理以及避免方式</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="moviii"
+      src="/images/avatar.svg">
+  <p class="site-author-name" itemprop="name">moviii</p>
+  <div class="site-description" itemprop="description">记点儿东西, 要不然全忘了</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
       </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/movi1224" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;movi1224" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:movi1224@outlook.com" title="E-Mail → mailto:movi1224@outlook.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://instagram.com/moviiiiii" title="Instagram → https:&#x2F;&#x2F;instagram.com&#x2F;moviiiiii" rel="noopener" target="_blank"><i class="fab fa-instagram fa-fw"></i></a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="Back to top">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
     </div>
-  </div>
-</header>
+  </aside>
+  <div class="sidebar-dimmer"></div>
 
-      <div class="outer">
-        <section id="main"><article id="post-计算机网络" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/07/10/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="article-date">
-  <time class="dt-published" datetime="2022-07-10T18:51:00.000Z" itemprop="datePublished">2022-07-10</time>
-</a>
+
+    </header>
+
     
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="p-name article-title" itemprop="headline name">
-      计算机网络
-    </h1>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
   
 
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/10/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.svg">
+      <meta itemprop="name" content="moviii">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Moviii's Blog">
+      <meta itemprop="description" content="记点儿东西, 要不然全忘了">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="计算机网络 | Moviii's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          计算机网络<a href="https://github.com/movi1224/movi1224.github.io/edit/myblog/source/_posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C.md" class="post-edit-link" title="Edit this post" rel="noopener" target="_blank"><i class="fa fa-pen-nib"></i></a>
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-07-10 14:51:00" itemprop="dateCreated datePublished" datetime="2022-07-10T14:51:00-04:00">2022-07-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-07-11 22:34:56" itemprop="dateModified" datetime="2022-07-11T22:34:56-04:00">2022-07-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Study/" itemprop="url" rel="index"><span itemprop="name">Study</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Study/HTTP/" itemprop="url" rel="index"><span itemprop="name">HTTP</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2022/07/10/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2022/07/10/计算机网络/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Symbols count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>18k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>16 mins.</span>
+    </span>
+</div>
+
+        </div>
       </header>
+
     
-    <div class="e-content article-entry" itemprop="articleBody">
-      
+    
+    
+    <div class="post-body" itemprop="articleBody">
         <h1 id="HTTP-和-HTTPS"><a href="#HTTP-和-HTTPS" class="headerlink" title="HTTP 和 HTTPS"></a>HTTP 和 HTTPS</h1><h3 id="HTTP-的基本概念"><a href="#HTTP-的基本概念" class="headerlink" title="HTTP 的基本概念"></a>HTTP 的基本概念</h3><p>http: 是互联网上应用最为广泛的一种网络协议，是一个客户端和服务器端<code>请求和应答的标准（TCP）</code>，用于从 WWW 服务器传输超文本到本地浏览器的<code>超文本传输协议</code>。</p>
 <h3 id="HTTP工作原理"><a href="#HTTP工作原理" class="headerlink" title="HTTP工作原理"></a>HTTP工作原理</h3><p>HTTP协议定义Web客户端如何从Web服务器请求Web页面，以及服务器如何把Web页面传送给客户端。客户端向服务器发送一个请求报文，服务器以一个状态行作为响应。</p>
 <h3 id="HTTP请求-x2F-响应的步骤"><a href="#HTTP请求-x2F-响应的步骤" class="headerlink" title="HTTP请求&#x2F;响应的步骤"></a>HTTP请求&#x2F;响应的步骤</h3><ul>
@@ -117,6 +345,8 @@
 <blockquote>
 <p>记忆口诀：连接发送加响应，释放解析整过程。</p>
 </blockquote>
+<span id="more"></span>
+
 <h3 id="HTTP-的-5-种方法"><a href="#HTTP-的-5-种方法" class="headerlink" title="HTTP 的 5 种方法"></a>HTTP 的 5 种方法</h3><ul>
 <li>GET—获取资源</li>
 <li>POST—传输资源</li>
@@ -162,7 +392,7 @@
 <blockquote>
 <p>记忆口诀：明文传输超文本，安全等级各不同。CA证书费用高，无状连接端难同。</p>
 </blockquote>
-<h4 id="https-协议的工作原理"><a href="#https-协议的工作原理" class="headerlink" title="https 协议的工作原理"></a>https 协议的工作原理</h4><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c42bc6f45451457fa6d614fb27534516~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h4 id="https-协议的工作原理"><a href="#https-协议的工作原理" class="headerlink" title="https 协议的工作原理"></a>https 协议的工作原理</h4><p><img data-src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c42bc6f45451457fa6d614fb27534516~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
 <p>客户端在使用 HTTPS 方式与 Web 服务器通信时有以下几个步骤：</p>
 <ol>
 <li>客户端使用 https url 访问服务器，则要求 web 服务器<code>建立 ssl 链接</code>。</li>
@@ -189,8 +419,8 @@
 <li>传输层：负责对报文进行分组和重组，并以TCP或UDP协议格式封装报文。</li>
 <li>应用层：负责向用户提供应用程序，比如HTTP、FTP、Telnet、DNS、SMTP等。</li>
 </ul>
-<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2fa80b3b48a84bd18d8e708c56a1dc22~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
-<h3 id="TCP三次握手"><a href="#TCP三次握手" class="headerlink" title="TCP三次握手"></a>TCP三次握手</h3><p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/baf3d5df95a74f47a1d779ee50c3411f~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<p><img data-src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2fa80b3b48a84bd18d8e708c56a1dc22~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="TCP三次握手"><a href="#TCP三次握手" class="headerlink" title="TCP三次握手"></a>TCP三次握手</h3><p><img data-src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/baf3d5df95a74f47a1d779ee50c3411f~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
 <ol>
 <li>第一次握手：<code>建立连接时，客户端发送syn包（syn=j）到服务器，并进入SYN_SENT状态，等待服务器确认</code>；SYN：同步序列编号（Synchronize Sequence Numbers）。</li>
 <li>第二次握手：<code>服务器收到syn包并确认客户的SYN</code>（ack&#x3D;j+1），<code>同时也发送一个自己的SYN包</code>（syn&#x3D;k），即SYN+ACK包，此时服务器进入SYN_RECV状态；</li>
@@ -347,7 +577,7 @@
 </li>
 </ul>
 <h3 id="浏览器的缓存机制-强制缓存-amp-amp-协商缓存"><a href="#浏览器的缓存机制-强制缓存-amp-amp-协商缓存" class="headerlink" title="浏览器的缓存机制 强制缓存 &amp;&amp; 协商缓存"></a>浏览器的缓存机制 强制缓存 &amp;&amp; 协商缓存</h3><p>浏览器与服务器通信的方式为应答模式，即是：浏览器发起HTTP请求 – 服务器响应该请求。那么浏览器第一次向服务器发起该请求后拿到请求结果，会根据响应报文中HTTP头的缓存标识，决定是否缓存结果，是则将请求结果和缓存标识存入浏览器缓存中，简单的过程如下图：</p>
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/05b3fe9c411f4881a8b22fe37eae170b~tplv-k3u1fbpfcp-zoom-1.image" alt="图片"></p>
+<p><img data-src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/05b3fe9c411f4881a8b22fe37eae170b~tplv-k3u1fbpfcp-zoom-1.image" alt="图片"></p>
 <p>由上图我们可以知道：</p>
 <ul>
 <li>浏览器每次发起请求，都会<code>先在浏览器缓存中查找该请求的结果以及缓存标识</code></li>
@@ -372,7 +602,7 @@
 </ol>
 </li>
 </ul>
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5e0ce991db4847b98d9f049f9ffa5c93~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<p><img data-src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5e0ce991db4847b98d9f049f9ffa5c93~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
 <p>传送门 ☞ <a target="_blank" rel="noopener" href="https://juejin.cn/post/6992843117963509791" title="https://juejin.cn/post/6992843117963509791"># 彻底理解浏览器的缓存机制</a></p>
 <h3 id="HTTP-请求跨域问题-1"><a href="#HTTP-请求跨域问题-1" class="headerlink" title="HTTP 请求跨域问题"></a>HTTP 请求跨域问题</h3><ol>
 <li><p>跨域的原理</p>
@@ -499,19 +729,19 @@
 <p><strong>HTTP 1.1 排队问题</strong></p>
 <p>HTTP 1.1多个文件共用一个TCP，这样可以减少tcp握手，这样3个文件就不用握手9次了，不过这样请求文件需要排队，请求和返回都需要排队， 如果第一个文件响应慢，会阻塞后面的文件，这样就产生了对头的等待问题。</p>
 <p>有的网站可能会有很多文件，浏览器处于对机器性能的考虑，它不可能让你无限制的发请求建连接，因为建立连接需要占用资源，浏览器不想把用户的网络资源都占用了，所以浏览器最多会建立6个tcp连接；如果有上百个文件可能都需要排队，http2.0正在解决这个问题。</p>
-<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8ecdc60670194df7957ee59e1f56701f~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<p><img data-src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8ecdc60670194df7957ee59e1f56701f~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
 <h3 id="SPDY-协议与-HTTP-x2F-2-简介"><a href="#SPDY-协议与-HTTP-x2F-2-简介" class="headerlink" title="SPDY 协议与 HTTP&#x2F;2 简介"></a>SPDY 协议与 HTTP&#x2F;2 简介</h3><h4 id="1、HTTP-x2F-2-简介"><a href="#1、HTTP-x2F-2-简介" class="headerlink" title="1、HTTP&#x2F;2 简介"></a>1、HTTP&#x2F;2 简介</h4><p>HTTP&#x2F;2是现行HTTP协议（HTTP&#x2F;1.x）的替代，但它不是重写。<strong>HTTP&#x2F;2基于SPDY，专注于性能，最大的一个目标是在用户和网站间只用一个连接（connection）</strong> 。</p>
 <h4 id="2、HTTP-x2F-2-新特性"><a href="#2、HTTP-x2F-2-新特性" class="headerlink" title="2、HTTP&#x2F;2 新特性"></a>2、HTTP&#x2F;2 新特性</h4><h4 id="1、二进制传输"><a href="#1、二进制传输" class="headerlink" title="1、二进制传输"></a>1、二进制传输</h4><p><code>HTTP/2传输数据量的大幅减少,主要有两个原因:以二进制方式传输和Header 压缩</code>。我们先来介绍二进制传输,HTTP&#x2F;2 采用二进制格式传输数据，而非HTTP&#x2F;1.x 里纯文本形式的报文 ，二进制协议解析起来更高效。<code>HTTP/2 将请求和响应数据分割为更小的帧，并且它们采用二进制编码</code>。</p>
 <h4 id="2、Header-压缩"><a href="#2、Header-压缩" class="headerlink" title="2、Header 压缩"></a>2、Header 压缩</h4><p>HTTP&#x2F;2并没有使用传统的压缩算法，而是开发了专门的”HPACK”算法，在客户端和服务器两端建立“字典”，用索引号表示重复的字符串，还采用哈夫曼编码来压缩整数和字符串，可以达到50%~90%的高压缩率。</p>
 <h4 id="3、多路复用"><a href="#3、多路复用" class="headerlink" title="3、多路复用"></a>3、多路复用</h4><p>在 HTTP&#x2F;2 中引入了多路复用的技术。多路复用很好的解决了浏览器限制同一个域名下的请求数量的问题，同时也更容易实现全速传输。</p>
-<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f756ad3403bc4fe18e970c56677c796e~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<p><img data-src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f756ad3403bc4fe18e970c56677c796e~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
 <h4 id="4、Server-Push"><a href="#4、Server-Push" class="headerlink" title="4、Server Push"></a>4、Server Push</h4><p>HTTP2还在一定程度上改变了传统的“请求-应答”工作模式，服务器不再是完全被动地响应请求，也可以新建“流”主动向客户端发送消息。减少等待的延迟，这被称为”<code>服务器推送</code>“（ Server Push，也叫 Cache push）</p>
 <h4 id="5、提高安全性"><a href="#5、提高安全性" class="headerlink" title="5、提高安全性"></a>5、提高安全性</h4><p>出于兼容的考虑，HTTP&#x2F;2延续了HTTP&#x2F;1的“明文”特点，可以像以前一样使用明文传输数据，不强制使用加密通信，不过格式还是二进制，只是不需要解密。</p>
 <p>但由于HTTPS已经是大势所趋，而且主流的浏览器Chrome、Firefox等都公开宣布只支持加密的HTTP&#x2F;2，<strong>所以“事实上”的HTTP&#x2F;2是加密的</strong>。也就是说，互联网上通常所能见到的HTTP&#x2F;2都是使用”https”协议名，跑在TLS上面。HTTP&#x2F;2协议定义了两个字符串标识符：“h2”表示加密的HTTP&#x2F;2，“h2c”表示明文的HTTP&#x2F;2。</p>
 <h4 id="6、防止对头阻塞"><a href="#6、防止对头阻塞" class="headerlink" title="6、防止对头阻塞"></a>6、防止对头阻塞</h4><p>http1.1如果第一个文件阻塞，第二个文件也就阻塞了。</p>
-<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b67bd1f793a3425d9e8a415cae9b7863~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<p><img data-src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b67bd1f793a3425d9e8a415cae9b7863~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
 <p>http2.0的解决，把3个请求打包成一个小块发送过去，即使第一个阻塞了，后面2个也可以回来；相当于3个文件同时请求，就看谁先回来谁后回来，阻塞的可能就后回来，对带宽的利用是最高的；但没有解决TCP的对头阻塞，如果TCP发过去的一个分包发丢了，他会重新发一次；http2.0的解决了大文件的阻塞。</p>
-<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/77d8ae8e0de44f3aa693f0626a346d4c~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<p><img data-src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/77d8ae8e0de44f3aa693f0626a346d4c~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
 <p>一个分包请求3个文件，即使第一个阻塞了，第二个也能返回</p>
 <h3 id="HTTP-x2F-2-的缺点"><a href="#HTTP-x2F-2-的缺点" class="headerlink" title="HTTP&#x2F;2 的缺点"></a>HTTP&#x2F;2 的缺点</h3><p>虽然 HTTP&#x2F;2 解决了很多之前旧版本的问题，但它还是存在一个巨大的问题，<strong>主要是底层支撑的 TCP 协议造成的</strong>。HTTP&#x2F;2的缺点主要有以下几点：</p>
 <ol>
@@ -572,113 +802,124 @@
 </ol>
 <p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzkzNzI0MDMxNQ==&mid=2247487116&idx=1&sn=09187eeb7e45faa1bee86ff48ae14be1&source=41#wechat_redirect">360技术：嗨，送你一张Web性能优化地图</a></p>
 
-      
     </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2022/07/10/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" data-id="cl5fof1uv0001hcnw8cqe54ww" data-title="计算机网络" class="article-share-link">Share</a>
-      
-      
-      
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/notes/" rel="tag"><i class="fa fa-tag"></i> notes</a>
+              <a href="/tags/frontend/" rel="tag"><i class="fa fa-tag"></i> frontend</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/07/10/hello-world/" rel="prev" title="Hello World">
+                  <i class="fa fa-chevron-left"></i> Hello World
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/07/10/React%E7%AC%94%E8%AE%B0/" rel="next" title="React笔记">
+                  React笔记 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
     </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
   </div>
   
-    
-<nav id="article-nav">
-  
-  
-    <a href="/2022/07/10/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Hello World</div>
-    </a>
-  
-</nav>
+</div>
+  </main>
 
-  
-</article>
+  <footer class="footer">
+    <div class="footer-inner">
 
 
-</section>
-        
-          <aside id="sidebar">
-  
-    
-
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">July 2022</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2022/07/10/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a>
-          </li>
-        
-          <li>
-            <a href="/2022/07/10/hello-world/">Hello World</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-      &copy; 2022 Yangkai He<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa-solid fa-cookie-bite"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">moviii</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>Symbols count total: </span>
+    <span title="Symbols count total">56k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>Reading time total &asymp;</span>
+    <span title="Reading time total">51 mins.</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-users"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
 
     </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-
-<script src="/js/jquery-3.4.1.min.js"></script>
-
-
+  </footer>
 
   
-<script src="/fancybox/jquery.fancybox.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
 
 
-<script src="/js/script.js"></script>
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"moviiis-blog","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
 
-
-
-
-
-  </div>
 </body>
 </html>

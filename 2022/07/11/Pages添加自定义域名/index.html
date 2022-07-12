@@ -22,27 +22,41 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":true,"nav":null,"activeClass":"disqus"},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+    <meta name="description" content="博客网站搭建好了，但访问的时候只能是以固定的域名形式（用户名.github.io）进行访问。这时可以通过购买域名的方式行实现自定义域名访问。可以去国外买或者国内，国内都是需要备案的。 购买域名后： 首先是用ping命令找到存放你的github pages的主机的IP地址(或者去Github Pages Doc里找)，在终端里面用命令ping xxx.github.io便可完成，下图中红框内的就是我">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://example.com/2022/07/10/hello-world/index.html">
+<meta property="og:title" content="给Github Pages添加自定义域名">
+<meta property="og:url" content="http://example.com/2022/07/11/Pages%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D/index.html">
 <meta property="og:site_name" content="Moviii&#39;s Blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="博客网站搭建好了，但访问的时候只能是以固定的域名形式（用户名.github.io）进行访问。这时可以通过购买域名的方式行实现自定义域名访问。可以去国外买或者国内，国内都是需要备案的。 购买域名后： 首先是用ping命令找到存放你的github pages的主机的IP地址(或者去Github Pages Doc里找)，在终端里面用命令ping xxx.github.io便可完成，下图中红框内的就是我">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-07-10T18:00:00.000Z">
-<meta property="article:modified_time" content="2022-07-12T02:43:15.424Z">
+<meta property="og:image" content="https://s2.51cto.com/images/blog/202105/20/0512eaedbd589700a91cc59d3e37b64c.png?x-oss-process=image/watermark,size_16,text_QDUxQ1RP5Y2a5a6i,color_FFFFFF,t_30,g_se,x_10,y_10,shadow_20,type_ZmFuZ3poZW5naGVpdGk=">
+<meta property="og:image" content="https://s2.51cto.com/images/blog/202105/20/35b942d661269dd6b40f3d8a32853fe8.png?x-oss-process=image/watermark,size_16,text_QDUxQ1RP5Y2a5a6i,color_FFFFFF,t_30,g_se,x_10,y_10,shadow_20,type_ZmFuZ3poZW5naGVpdGk=">
+<meta property="og:image" content="https://s2.51cto.com/images/blog/202105/20/60c6863f819cb45d4d1460947bf0ae71.png?x-oss-process=image/watermark,size_16,text_QDUxQ1RP5Y2a5a6i,color_FFFFFF,t_30,g_se,x_10,y_10,shadow_20,type_ZmFuZ3poZW5naGVpdGk=">
+<meta property="og:image" content="https://s2.51cto.com/images/blog/202105/20/71ffdd069477ff0f54c6e99a3a6a4e71.png?x-oss-process=image/watermark,size_16,text_QDUxQ1RP5Y2a5a6i,color_FFFFFF,t_30,g_se,x_10,y_10,shadow_20,type_ZmFuZ3poZW5naGVpdGk=">
+<meta property="og:image" content="https://s2.51cto.com/images/blog/202105/20/464684d5f94bae03fc7f9b78d3b9e200.png?x-oss-process=image/watermark,size_16,text_QDUxQ1RP5Y2a5a6i,color_FFFFFF,t_30,g_se,x_10,y_10,shadow_20,type_ZmFuZ3poZW5naGVpdGk=">
+<meta property="og:image" content="https://s2.51cto.com/images/blog/202105/20/d70a389b9f4a2c5a65673dd0e8d29147.png?x-oss-process=image/watermark,size_16,text_QDUxQ1RP5Y2a5a6i,color_FFFFFF,t_30,g_se,x_10,y_10,shadow_20,type_ZmFuZ3poZW5naGVpdGk=">
+<meta property="og:image" content="https://s2.51cto.com/images/blog/202105/20/22dcdbfc29349c3bf60028f2d9a679c4.png?x-oss-process=image/watermark,size_16,text_QDUxQ1RP5Y2a5a6i,color_FFFFFF,t_30,g_se,x_10,y_10,shadow_20,type_ZmFuZ3poZW5naGVpdGk=">
+<meta property="og:image" content="https://s2.51cto.com/images/blog/202105/20/645eab10e04fdad97fb283e5b49ba03b.png?x-oss-process=image/watermark,size_16,text_QDUxQ1RP5Y2a5a6i,color_FFFFFF,t_30,g_se,x_10,y_10,shadow_20,type_ZmFuZ3poZW5naGVpdGk=">
+<meta property="og:image" content="https://s2.51cto.com/images/blog/202105/20/12f8d9b219674566e500a98dbf42b3fe.png?x-oss-process=image/watermark,size_16,text_QDUxQ1RP5Y2a5a6i,color_FFFFFF,t_30,g_se,x_10,y_10,shadow_20,type_ZmFuZ3poZW5naGVpdGk=">
+<meta property="og:image" content="https://s2.51cto.com/images/blog/202105/20/9e9a4bccd513ffb7f8eddcf0ed53ef72.png?x-oss-process=image/watermark,size_16,text_QDUxQ1RP5Y2a5a6i,color_FFFFFF,t_30,g_se,x_10,y_10,shadow_20,type_ZmFuZ3poZW5naGVpdGk=">
+<meta property="og:image" content="https://s2.51cto.com/images/blog/202105/20/fcaa518bb5d34d486ed8b981155c03ab.png?x-oss-process=image/watermark,size_16,text_QDUxQ1RP5Y2a5a6i,color_FFFFFF,t_30,g_se,x_10,y_10,shadow_20,type_ZmFuZ3poZW5naGVpdGk=">
+<meta property="article:published_time" content="2022-07-11T21:36:15.000Z">
+<meta property="article:modified_time" content="2022-07-11T22:22:04.823Z">
 <meta property="article:author" content="moviii">
+<meta property="article:tag" content="notes">
+<meta property="article:tag" content="github">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.51cto.com/images/blog/202105/20/0512eaedbd589700a91cc59d3e37b64c.png?x-oss-process=image/watermark,size_16,text_QDUxQ1RP5Y2a5a6i,color_FFFFFF,t_30,g_se,x_10,y_10,shadow_20,type_ZmFuZ3poZW5naGVpdGk=">
 
 
-<link rel="canonical" href="http://example.com/2022/07/10/hello-world/">
+<link rel="canonical" href="http://example.com/2022/07/11/Pages%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2022/07/10/hello-world/","path":"2022/07/10/hello-world/","title":"Hello World"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2022/07/11/Pages%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D/","path":"2022/07/11/Pages添加自定义域名/","title":"给Github Pages添加自定义域名"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Hello World | Moviii's Blog</title>
+<title>给Github Pages添加自定义域名 | Moviii's Blog</title>
   
 
   <script src="/js/third-party/analytics/baidu-analytics.js"></script>
@@ -147,7 +161,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B4%AD%E4%B9%B0%E5%9F%9F%E5%90%8D%E5%90%8E%EF%BC%9A"><span class="nav-number">1.</span> <span class="nav-text">购买域名后：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BE%8B%E5%A4%96%E5%A6%82%E6%9E%9C%E4%B8%8D%E5%A4%AA%E6%87%82%E8%A7%A3%E6%9E%90%E5%9F%9F%E5%90%8D%E7%9A%84%E5%8F%AF%E4%BB%A5%E5%8F%82%E8%80%83%E5%A6%82%E4%B8%8B%E8%B5%84%E6%96%99%EF%BC%9A"><span class="nav-number">2.</span> <span class="nav-text">例外如果不太懂解析域名的可以参考如下资料：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ref"><span class="nav-number">3.</span> <span class="nav-text">Ref:</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -223,7 +237,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/10/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/11/Pages%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.svg">
@@ -236,12 +250,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="Hello World | Moviii's Blog">
+      <meta itemprop="name" content="给Github Pages添加自定义域名 | Moviii's Blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Hello World<a href="https://github.com/movi1224/movi1224.github.io/edit/myblog/source/_posts/hello-world.md" class="post-edit-link" title="Edit this post" rel="noopener" target="_blank"><i class="fa fa-pen-nib"></i></a>
+          给Github Pages添加自定义域名<a href="https://github.com/movi1224/movi1224.github.io/edit/myblog/source/_posts/Pages%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D.md" class="post-edit-link" title="Edit this post" rel="noopener" target="_blank"><i class="fa fa-pen-nib"></i></a>
         </h1>
 
         <div class="post-meta-container">
@@ -251,15 +265,22 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
+      
 
-      <time title="Created: 2022-07-10 14:00:00" itemprop="dateCreated datePublished" datetime="2022-07-10T14:00:00-04:00">2022-07-10</time>
+      <time title="Created: 2022-07-11 17:36:15 / Modified: 18:22:04" itemprop="dateCreated datePublished" datetime="2022-07-11T17:36:15-04:00">2022-07-11</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
+        <i class="far fa-folder"></i>
       </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-07-11 22:43:15" itemprop="dateModified" datetime="2022-07-11T22:43:15-04:00">2022-07-11</time>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Notes/" itemprop="url" rel="index"><span itemprop="name">Notes</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Notes/GitHub/" itemprop="url" rel="index"><span itemprop="name">GitHub</span></a>
+        </span>
     </span>
 
   
@@ -278,8 +299,8 @@
       </span>
       <span class="post-meta-item-text">Disqus: </span>
     
-    <a title="disqus" href="/2022/07/10/hello-world/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2022/07/10/hello-world/" itemprop="commentCount"></span>
+    <a title="disqus" href="/2022/07/11/Pages%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2022/07/11/Pages添加自定义域名/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -290,7 +311,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>367</span>
+      <span>769</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
@@ -308,20 +329,41 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<span id="more"></span>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+        <p>博客网站搭建好了，但访问的时候只能是以固定的域名形式（用户名.github.io）进行访问。这时可以通过购买域名的方式行实现自定义域名访问。可以去国外买或者国内，国内都是需要备案的。</p>
+<h2 id="购买域名后："><a href="#购买域名后：" class="headerlink" title="购买域名后："></a>购买域名后：</h2><ol>
+<li>首先是用ping命令找到存放你的github pages的主机的IP地址(或者去Github Pages Doc里找)，在终端里面用命令ping<br> xxx.github.io便可完成，下图中红框内的就是我们要找的IP地址：<span id="more"></span></li>
+</ol>
+<p><img data-src="https://s2.51cto.com/images/blog/202105/20/0512eaedbd589700a91cc59d3e37b64c.png?x-oss-process=image/watermark,size_16,text_QDUxQ1RP5Y2a5a6i,color_FFFFFF,t_30,g_se,x_10,y_10,shadow_20,type_ZmFuZ3poZW5naGVpdGk=" alt="使用自定义域名来访问GitHub上部署的hugo博客——GitHub Pages_GitHub"></p>
+<ol start="2">
+<li>在购买域名的提供商为域名添加解析。我是在阿里云买的域名，因此我以阿里云的为例。在域名控制台选择想要绑定的域名，并点击解析：</li>
+</ol>
+<p><img data-src="https://s2.51cto.com/images/blog/202105/20/35b942d661269dd6b40f3d8a32853fe8.png?x-oss-process=image/watermark,size_16,text_QDUxQ1RP5Y2a5a6i,color_FFFFFF,t_30,g_se,x_10,y_10,shadow_20,type_ZmFuZ3poZW5naGVpdGk=" alt="使用自定义域名来访问GitHub上部署的hugo博客——GitHub Pages_GitHub Pages_02"></p>
+<ul>
+<li>记录类型：CNAME 将一个域名指向例外一个域名，再由另一个域名提供IP地址，就需要添加 CNAME 记录。<br>主机记录：www 表示访问域名的时候以www开头为一级域名。如果是二级域名的话就在前面加上自己想要的参数，访问的时候也是以二级域名的形式访问。</li>
+</ul>
+<p><img data-src="https://s2.51cto.com/images/blog/202105/20/60c6863f819cb45d4d1460947bf0ae71.png?x-oss-process=image/watermark,size_16,text_QDUxQ1RP5Y2a5a6i,color_FFFFFF,t_30,g_se,x_10,y_10,shadow_20,type_ZmFuZ3poZW5naGVpdGk=" alt="使用自定义域名来访问GitHub上部署的hugo博客——GitHub Pages_GitHub Pages_03"></p>
+<ul>
+<li>记录类型：A 将域名指向一个IPv4地址，如果需要将域名指向一个 IP 地址（外网地址），就需要添加 A 记录<br>主机记录：@ 表示访问的时候直接用 yunxdr.top 形式访问，前面不加任何参数。如果是www，就要以 <a target="_blank" rel="noopener" href="http://www.yunxdr.top%E8%AE%BF%E9%97%AE%E3%80%82%E8%BF%99%E9%87%8C%E8%AE%BE%E7%BD%AE%E7%9A%84@形式与下面github上自定义的域名要对应/">www.yunxdr.top访问。这里设置的@形式与下面GitHub上自定义的域名要对应</a></li>
+</ul>
+<p><img data-src="https://s2.51cto.com/images/blog/202105/20/71ffdd069477ff0f54c6e99a3a6a4e71.png?x-oss-process=image/watermark,size_16,text_QDUxQ1RP5Y2a5a6i,color_FFFFFF,t_30,g_se,x_10,y_10,shadow_20,type_ZmFuZ3poZW5naGVpdGk=" alt="使用自定义域名来访问GitHub上部署的hugo博客——GitHub Pages_GitHub Pages_04"></p>
+<ol start="3">
+<li>在上面存放静态网站的Repository Settings里面GitHubPages Custom domain（自定义域名）填上自己的域名点击save；</li>
+</ol>
+<p><img data-src="https://s2.51cto.com/images/blog/202105/20/464684d5f94bae03fc7f9b78d3b9e200.png?x-oss-process=image/watermark,size_16,text_QDUxQ1RP5Y2a5a6i,color_FFFFFF,t_30,g_se,x_10,y_10,shadow_20,type_ZmFuZ3poZW5naGVpdGk=" alt="使用自定义域名来访问GitHub上部署的hugo博客——GitHub Pages_GitHub Pages_05"><br><img data-src="https://s2.51cto.com/images/blog/202105/20/d70a389b9f4a2c5a65673dd0e8d29147.png?x-oss-process=image/watermark,size_16,text_QDUxQ1RP5Y2a5a6i,color_FFFFFF,t_30,g_se,x_10,y_10,shadow_20,type_ZmFuZ3poZW5naGVpdGk=" alt="使用自定义域名来访问GitHub上部署的hugo博客——GitHub Pages_GitHub Pages_06"></p>
+<pre><code>设置完成后就可以通过 yunxdr.top 访问部署在GitHub上的hugo的网站了
+</code></pre>
+<p><img data-src="https://s2.51cto.com/images/blog/202105/20/22dcdbfc29349c3bf60028f2d9a679c4.png?x-oss-process=image/watermark,size_16,text_QDUxQ1RP5Y2a5a6i,color_FFFFFF,t_30,g_se,x_10,y_10,shadow_20,type_ZmFuZ3poZW5naGVpdGk=" alt="使用自定义域名来访问GitHub上部署的hugo博客——GitHub Pages_GitHub_07"></p>
+<h2 id="例外如果不太懂解析域名的可以参考如下资料："><a href="#例外如果不太懂解析域名的可以参考如下资料：" class="headerlink" title="例外如果不太懂解析域名的可以参考如下资料："></a>例外如果不太懂解析域名的可以参考如下资料：</h2><p><img data-src="https://s2.51cto.com/images/blog/202105/20/645eab10e04fdad97fb283e5b49ba03b.png?x-oss-process=image/watermark,size_16,text_QDUxQ1RP5Y2a5a6i,color_FFFFFF,t_30,g_se,x_10,y_10,shadow_20,type_ZmFuZ3poZW5naGVpdGk=" alt="渲染结果"><br><img data-src="https://s2.51cto.com/images/blog/202105/20/12f8d9b219674566e500a98dbf42b3fe.png?x-oss-process=image/watermark,size_16,text_QDUxQ1RP5Y2a5a6i,color_FFFFFF,t_30,g_se,x_10,y_10,shadow_20,type_ZmFuZ3poZW5naGVpdGk=" alt="渲染结果"><br>    关于记录值www和@的区别</p>
+<ul>
+<li><p>创建 <a target="_blank" rel="noopener" href="http://www.dns-example.com/">www.dns-example.com</a> 的子域名。<br><img data-src="https://s2.51cto.com/images/blog/202105/20/9e9a4bccd513ffb7f8eddcf0ed53ef72.png?x-oss-process=image/watermark,size_16,text_QDUxQ1RP5Y2a5a6i,color_FFFFFF,t_30,g_se,x_10,y_10,shadow_20,type_ZmFuZ3poZW5naGVpdGk=" alt="渲染结果"></p>
+</li>
+<li><p>创建 dns-example.com 的子域名。<br><img data-src="https://s2.51cto.com/images/blog/202105/20/fcaa518bb5d34d486ed8b981155c03ab.png?x-oss-process=image/watermark,size_16,text_QDUxQ1RP5Y2a5a6i,color_FFFFFF,t_30,g_se,x_10,y_10,shadow_20,type_ZmFuZ3poZW5naGVpdGk=" alt="渲染结果"></p>
+</li>
+</ul>
+<hr>
+<h2 id="Ref"><a href="#Ref" class="headerlink" title="Ref:"></a>Ref:</h2><blockquote>
+<p><a target="_blank" rel="noopener" href="https://blog.51cto.com/xdr630/2795777">使用自定义域名来访问GitHub上部署的hugo博客——GitHub Pages</a></p>
+</blockquote>
 
     </div>
 
@@ -330,15 +372,22 @@
     
 
     <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/notes/" rel="tag"><i class="fa fa-tag"></i> notes</a>
+              <a href="/tags/github/" rel="tag"><i class="fa fa-tag"></i> github</a>
+          </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
+                <a href="/2022/07/10/React%E7%AC%94%E8%AE%B0/" rel="prev" title="React笔记">
+                  <i class="fa fa-chevron-left"></i> React笔记
+                </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/07/10/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="next" title="计算机网络">
-                  计算机网络 <i class="fa fa-chevron-right"></i>
+                <a href="/2022/07/11/Hexo%E4%B8%AD%E6%B7%BB%E5%8A%A0%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87/" rel="next" title="Hexo中添加本地图片">
+                  Hexo中添加本地图片 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
