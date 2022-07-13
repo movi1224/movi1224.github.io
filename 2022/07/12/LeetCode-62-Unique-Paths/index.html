@@ -22,16 +22,16 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":true,"nav":null,"activeClass":"disqus"},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="62. Unique PathsQuestion:-There is a robot on an m x n grid. The robot is initially located at the top-left corner (i.e., grid[0][0]). The robot tries to move to the bottom-right corner (i.e., grid[m">
+    <meta name="description" content="62. Unique PathsQuestion: There is a robot on an m x n grid. The robot is initially located at the top-left corner (i.e., grid[0][0]). The robot tries to move to the bottom-right corner (i.e., grid[m">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LeetCode 62: Unique Paths">
 <meta property="og:url" content="http://example.com/2022/07/12/LeetCode-62-Unique-Paths/index.html">
 <meta property="og:site_name" content="Moviii&#39;s Blog">
-<meta property="og:description" content="62. Unique PathsQuestion:-There is a robot on an m x n grid. The robot is initially located at the top-left corner (i.e., grid[0][0]). The robot tries to move to the bottom-right corner (i.e., grid[m">
+<meta property="og:description" content="62. Unique PathsQuestion: There is a robot on an m x n grid. The robot is initially located at the top-left corner (i.e., grid[0][0]). The robot tries to move to the bottom-right corner (i.e., grid[m">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://assets.leetcode.com/uploads/2018/10/22/robot_maze.png">
 <meta property="article:published_time" content="2022-07-12T04:01:18.000Z">
-<meta property="article:modified_time" content="2022-07-12T04:58:19.943Z">
+<meta property="article:modified_time" content="2022-07-13T20:42:46.076Z">
 <meta property="article:author" content="moviii">
 <meta property="article:tag" content="study">
 <meta property="article:tag" content="leetcode">
@@ -151,7 +151,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#62-Unique-Paths"><span class="nav-number">1.</span> <span class="nav-text">62. Unique Paths</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Question"><span class="nav-number">1.1.</span> <span class="nav-text">Question:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Example-1"><span class="nav-number">1.2.</span> <span class="nav-text">Example 1:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Example-2"><span class="nav-number">1.3.</span> <span class="nav-text">Example 2:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E6%B3%95"><span class="nav-number">1.4.</span> <span class="nav-text">解法:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A5%BD%E7%90%86%E8%A7%A3%E7%89%88%E6%9C%AC"><span class="nav-number">1.5.</span> <span class="nav-text">好理解版本</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#62-Unique-Paths"><span class="nav-number">1.</span> <span class="nav-text">62. Unique Paths</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Question"><span class="nav-number">1.1.</span> <span class="nav-text">Question:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Example-1"><span class="nav-number">1.2.</span> <span class="nav-text">Example 1:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Example-2"><span class="nav-number">1.3.</span> <span class="nav-text">Example 2:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E6%B3%95"><span class="nav-number">1.4.</span> <span class="nav-text">解法:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A5%BD%E7%90%86%E8%A7%A3%E7%89%88%E6%9C%AC"><span class="nav-number">1.5.</span> <span class="nav-text">好理解版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%80%E4%BC%98%E7%89%88%E6%9C%AC"><span class="nav-number">1.6.</span> <span class="nav-text">最优版本</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -255,9 +255,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2022-07-12 00:01:18 / Modified: 00:58:19" itemprop="dateCreated datePublished" datetime="2022-07-12T00:01:18-04:00">2022-07-12</time>
+      <time title="Created: 2022-07-12 00:01:18" itemprop="dateCreated datePublished" datetime="2022-07-12T00:01:18-04:00">2022-07-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-07-13 16:42:46" itemprop="dateModified" datetime="2022-07-13T16:42:46-04:00">2022-07-13</time>
     </span>
 
   
@@ -306,11 +312,11 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="62-Unique-Paths"><a href="#62-Unique-Paths" class="headerlink" title="62. Unique Paths"></a>62. Unique Paths</h2><h3 id="Question"><a href="#Question" class="headerlink" title="Question:"></a>Question:</h3><p>-There is a robot on an <code>m x n</code> grid. The robot is initially located at the top-left corner (i.e., <code>grid[0][0]</code>). The robot tries to move to the bottom-right corner (i.e., <code>grid[m - 1][n - 1]</code>). The robot can only move either down or right at any point in time.</p>
-<span id="more"></span>
-
+        <h2 id="62-Unique-Paths"><a href="#62-Unique-Paths" class="headerlink" title="62. Unique Paths"></a>62. Unique Paths</h2><h3 id="Question"><a href="#Question" class="headerlink" title="Question:"></a>Question:</h3><blockquote>
+<p>There is a robot on an <code>m x n</code> grid. The robot is initially located at the top-left corner (i.e., <code>grid[0][0]</code>). The robot tries to move to the bottom-right corner (i.e., <code>grid[m - 1][n - 1]</code>). The robot can only move either down or right at any point in time.</p>
 <p>Given the two integers <code>m</code> and <code>n</code>, return the number of possible unique paths that the robot can take to reach the bottom-right corner.</p>
 <p>The test cases are generated so that the answer will be less than or equal to 2 * 10<sup>9</sup>.</p>
+</blockquote>
 <h3 id="Example-1"><a href="#Example-1" class="headerlink" title="Example 1:"></a>Example 1:</h3><p><img data-src="https://assets.leetcode.com/uploads/2018/10/22/robot_maze.png"></p>
 <pre><code>Input: m = 3, n = 7
 Output: 28
@@ -350,11 +356,10 @@ Explanation: From the top-left corner, there are a total of 3 ways to reach the 
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * @param &#123;number&#125; m</span><br><span class="line"> * @param &#123;number&#125; n</span><br><span class="line"> * @return &#123;number&#125;</span><br><span class="line"> */</span><br><span class="line">var uniquePaths = function(m, n) &#123;</span><br><span class="line">    // 创建容器数组</span><br><span class="line">    let dp = Array(m).fill(0).map(() =&gt; Array(n).fill(0))</span><br><span class="line"></span><br><span class="line">    // 最上一行和最下一行初始值为1</span><br><span class="line">    for (let i = 0; i &lt; m; i++)&#123;</span><br><span class="line">        for (let j = 0; j &lt; n; j++)&#123;</span><br><span class="line">            if (i === 0 | j === 0) dp[i][j] = 1</span><br><span class="line">            else&#123;</span><br><span class="line">                dp[i][j] = dp[i-1][j] + dp[i][j-1]</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return dp[m-1][n-1]</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">// 速度 &gt; 80%, 空间 &gt; 40%</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li><p><em><strong>接下来，还可以将时间复杂度由O(n^2)优化为O(n)，主要由于状态转移方程中，当前状态主要取决于(i - 1)行和(j - 1)列，所以并不需要保存每一行的状态</strong></em></p>
-</li>
-<li><p><em><strong>dp可以优化为一维滚动数组。当第i次遍历到dp[j]时，dp[j]表示到达(i, j)最多的路径数。递推公式为： d p [ j ] + &#x3D; d p [ j − 1 ]</strong></em></p>
-</li>
+<li><h3 id="最优版本"><a href="#最优版本" class="headerlink" title="最优版本"></a>最优版本</h3></li>
 </ul>
+<p><em><strong>接下来，还可以将时间复杂度由O(n^2)优化为O(n)，主要由于状态转移方程中，当前状态主要取决于(i - 1)行和(j - 1)列，所以并不需要保存每一行的状态</strong></em></p>
+<p><em><strong>dp可以优化为一维滚动数组。当第i次遍历到dp[j]时，dp[j]表示到达(i, j)最多的路径数。递推公式为： d p [ j ] + &#x3D; d p [ j − 1 ]</strong></em></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">var uniquePaths = function(m, n) &#123;</span><br><span class="line">    // 创建容器数组</span><br><span class="line">    let dp = Array(n).fill(0)</span><br><span class="line">    dp[0] = 1</span><br><span class="line"></span><br><span class="line">    // 最上一行和最下一行初始值为1</span><br><span class="line">    for (let i = 0; i &lt; m; i++)&#123;</span><br><span class="line">        for (let j = 1; j &lt; n; j++)&#123;</span><br><span class="line">            dp[j] += dp[j-1]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return dp[n-1]</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">// 速度 &gt; 95%, 空间 &gt; 90%</span><br></pre></td></tr></table></figure>
 
 
