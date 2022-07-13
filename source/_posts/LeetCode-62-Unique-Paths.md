@@ -9,12 +9,11 @@ tags:
 ## 62. Unique Paths
 
 ### Question: 
--There is a robot on an `m x n` grid. The robot is initially located at the top-left corner (i.e., `grid[0][0]`). The robot tries to move to the bottom-right corner (i.e., `grid[m - 1][n - 1]`). The robot can only move either down or right at any point in time.
-<!-- more -->
-
-Given the two integers `m` and `n`, return the number of possible unique paths that the robot can take to reach the bottom-right corner.
-
-The test cases are generated so that the answer will be less than or equal to 2 * 10<sup>9</sup>.
+>There is a robot on an `m x n` grid. The robot is initially located at the top-left corner (i.e., `grid[0][0]`). The robot tries to move to the bottom-right corner (i.e., `grid[m - 1][n - 1]`). The robot can only move either down or right at any point in time.
+>
+> Given the two integers `m` and `n`, return the number of possible unique paths that the robot can take to reach the bottom-right corner.
+>
+> The test cases are generated so that the answer will be less than or equal to 2 * 10<sup>9</sup>.
 
 ### Example 1:
 
@@ -74,9 +73,11 @@ var uniquePaths = function(m, n) {
 // 速度 > 80%, 空间 > 40%
 ```
 
-- ***接下来，还可以将时间复杂度由O(n^2)优化为O(n)，主要由于状态转移方程中，当前状态主要取决于(i - 1)行和(j - 1)列，所以并不需要保存每一行的状态***
+* ### 最优版本
 
-- ***dp可以优化为一维滚动数组。当第i次遍历到dp[j]时，dp[j]表示到达(i, j)最多的路径数。递推公式为： d p [ j ] + = d p [ j − 1 ]***
+***接下来，还可以将时间复杂度由O(n^2)优化为O(n)，主要由于状态转移方程中，当前状态主要取决于(i - 1)行和(j - 1)列，所以并不需要保存每一行的状态***
+
+***dp可以优化为一维滚动数组。当第i次遍历到dp[j]时，dp[j]表示到达(i, j)最多的路径数。递推公式为： d p [ j ] + = d p [ j − 1 ]***
 
 ```
 var uniquePaths = function(m, n) {
