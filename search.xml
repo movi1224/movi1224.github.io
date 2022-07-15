@@ -29,13 +29,43 @@
       </tags>
   </entry>
   <entry>
+    <title>LeetCode 403: Frog Jump</title>
+    <url>/2022/07/15/LeetCode-403-Frog-Jump/</url>
+    <content><![CDATA[<h2 id="403-Frog-Jump-Hard"><a href="#403-Frog-Jump-Hard" class="headerlink" title="403. Frog Jump (Hard)"></a>403. Frog Jump (Hard)</h2><h3 id="Question"><a href="#Question" class="headerlink" title="Question:"></a>Question:</h3><p>A frog is crossing a river. The river is divided into some number of units, and at each unit, there may or may not exist a stone. The frog can jump on a stone, but it must not jump into the water.</p>
+<p>Given a list of <code>stones</code>‘ positions (in units) in sorted <strong>ascending order</strong>, determine if the frog can cross the river by landing on the last stone. Initially, the frog is on the first stone and assumes the first jump must be <code>1</code> unit.</p>
+<p>If the frog’s last jump was <code>k</code> units, its next jump must be either <code>k - 1</code>, <code>k</code>, or <code>k + 1</code> units. The frog can only jump in the forward direction.</p>
+<h3 id="Example-1"><a href="#Example-1" class="headerlink" title="Example 1:"></a>Example 1:</h3><pre><code>Input: stones = [0,1,3,5,6,8,12,17]
+Output: true
+Explanation: The frog can jump to the last stone by jumping 1 unit to the 2nd stone, then 2 units to the 3rd stone, then 2 units to the 4th stone, then 3 units to the 6th stone, 4 units to the 7th stone, and 5 units to the 8th stone.
+</code></pre>
+<h3 id="Example-2"><a href="#Example-2" class="headerlink" title="Example 2:"></a>Example 2:</h3><pre><code>Input: stones = [0,1,2,3,4,8,9,11]
+Output: false
+Explanation: There is no way to jump to the last stone as the gap between the 5th and 6th stone is too large.
+</code></pre>
+<h3 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h3><p><strong>动态规划</strong></p>
+<pre><code>状态转移方程：
+dp[i][k] = dp[j][k-1] || dp[j][k] || dp[j][k+1]
+</code></pre>
+<p><strong>解析</strong></p>
+<ol>
+<li>首先很明确每一个点由上一个点跳跃过来的有可能的最大值就是这个点的index (画一下就知道了)</li>
+<li><strong>!<strong>上述方程: 第一层arr表示index (i是当前ind, j为上一个, 也可能再上一个等等), 第二层arr表示之前的</strong>所有有可能的石头位置</strong>跳到当前ind所用的距离. (如果是某个距离,则在该距离对应的ind下标记为true, 表明他可能是由前面的某个石头花了k个距离跳来的)</li>
+<li>从等号右边找对应, 如果<code>之前的(所有的可能性, 后面会用到遍历, 注意j不仅仅只是上一个)石头跳到前一个石头的距离</code>和<code>前一个石头跳到当前位置距离差距</code>只有1内, 那么这个可能性存在</li>
+</ol>
+<h3 id="上代码"><a href="#上代码" class="headerlink" title="上代码"></a>上代码</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/**</span><br><span class="line"> * @param &#123;number[]&#125; stones</span><br><span class="line"> * @return &#123;boolean&#125;</span><br><span class="line"> */</span><br><span class="line">var canCross = function(stones) &#123;</span><br><span class="line">    let n = stones.length;</span><br><span class="line">    let dp = new Array(n).fill(0).map(()=&gt;new Array(n).fill(0))</span><br><span class="line">    dp[0][0] = true</span><br><span class="line">    </span><br><span class="line">    for (let i = 1; i &lt; n; i++)&#123;</span><br><span class="line">        if (stones[i] - stones[i-1] &gt; i) return false</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    for (let i = 1; i &lt; n; i++)&#123;</span><br><span class="line">        for (let j = i-1; j &gt;= 0; j--)&#123;</span><br><span class="line">            console.log(&#x27;新的j&#x27;, j, &#x27;i为&#x27;, i)</span><br><span class="line">            let diff = stones[i] - stones[j] // 当前i和之前的某一个i(j)的距离, 下一次遍历则是比较再前一个(j--), 如果再前一个也可以跳到这里, 那么这个差距也存储 (相当于把能跳到这里的所有可能的跳跃距离都存上了!)</span><br><span class="line">            if (diff &gt; j + 1) break // 如果扫描到离得很远以至于diff比ind差更远的,就直接跳过啦</span><br><span class="line">            dp[i][diff] =  dp[j][diff - 1] || dp[j][diff] || dp[j][diff + 1] (注意这里不仅比较一个j,还有j--, 比较所有j能跳到这里的距离, 相当于如果前一个距离这里太近还不到diff-1(不符合), 则下一次遍历会去找到j--,相当于再前一个跳到这里的距离)</span><br><span class="line">            if (dp[i][diff] &amp;&amp; i === n-1) return true</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    return false</span><br><span class="line">    </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>study</tag>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>LeetCode 62: Unique Paths</title>
     <url>/2022/07/12/LeetCode-62-Unique-Paths/</url>
-    <content><![CDATA[<h2 id="62-Unique-Paths"><a href="#62-Unique-Paths" class="headerlink" title="62. Unique Paths"></a>62. Unique Paths</h2><h3 id="Question"><a href="#Question" class="headerlink" title="Question:"></a>Question:</h3><blockquote>
-<p>There is a robot on an <code>m x n</code> grid. The robot is initially located at the top-left corner (i.e., <code>grid[0][0]</code>). The robot tries to move to the bottom-right corner (i.e., <code>grid[m - 1][n - 1]</code>). The robot can only move either down or right at any point in time.</p>
+    <content><![CDATA[<h2 id="62-Unique-Paths-Med"><a href="#62-Unique-Paths-Med" class="headerlink" title="62. Unique Paths (Med)"></a>62. Unique Paths (Med)</h2><h3 id="Question"><a href="#Question" class="headerlink" title="Question:"></a>Question:</h3><p>There is a robot on an <code>m x n</code> grid. The robot is initially located at the top-left corner (i.e., <code>grid[0][0]</code>). The robot tries to move to the bottom-right corner (i.e., <code>grid[m - 1][n - 1]</code>). The robot can only move either down or right at any point in time.</p>
 <p>Given the two integers <code>m</code> and <code>n</code>, return the number of possible unique paths that the robot can take to reach the bottom-right corner.</p>
 <p>The test cases are generated so that the answer will be less than or equal to 2 * 10<sup>9</sup>.</p>
-</blockquote>
 <h3 id="Example-1"><a href="#Example-1" class="headerlink" title="Example 1:"></a>Example 1:</h3><p><img data-src="https://assets.leetcode.com/uploads/2018/10/22/robot_maze.png"></p>
 <pre><code>Input: m = 3, n = 7
 Output: 28
@@ -138,25 +168,6 @@ Explanation: From the top-left corner, there are a total of 3 ways to reach the 
         <tag>notes</tag>
         <tag>github</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2022/07/10/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<span id="more"></span>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
   </entry>
   <entry>
     <title>React笔记</title>
@@ -725,6 +736,25 @@ Explanation: From the top-left corner, there are a total of 3 ways to reach the 
         <tag>react</tag>
         <tag>frontend</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2022/07/10/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
   </entry>
   <entry>
     <title>计算机网络</title>
