@@ -247,9 +247,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2022-07-14 22:58:27 / Modified: 23:22:13" itemprop="dateCreated datePublished" datetime="2022-07-14T22:58:27-04:00">2022-07-14</time>
+      <time title="Created: 2022-07-14 22:58:27" itemprop="dateCreated datePublished" datetime="2022-07-14T22:58:27-04:00">2022-07-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-07-18 19:21:23" itemprop="dateModified" datetime="2022-07-18T19:21:23-04:00">2022-07-18</time>
     </span>
 
   
@@ -273,7 +279,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>2k</span>
+      <span>1.9k</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
@@ -308,12 +314,11 @@ dp[i][k] = dp[j][k-1] || dp[j][k] || dp[j][k+1]
 </code></pre>
 <p><strong>解析</strong></p>
 <ol>
-<li>首先很明确每一个点由上一个点跳跃过来的有可能的最大值就是这个点的index (画一下就知道了)</li>
-<li><strong>!<strong>上述方程: 第一层arr表示index (i是当前ind, j为上一个, 也可能再上一个等等), 第二层arr表示之前的</strong>所有有可能的石头位置</strong>跳到当前ind所用的距离. (如果是某个距离,则在该距离对应的ind下标记为true, 表明他可能是由前面的某个石头花了k个距离跳来的)</li>
-<li>从等号右边找对应, 如果<code>之前的(所有的可能性, 后面会用到遍历, 注意j不仅仅只是上一个)石头跳到前一个石头的距离</code>和<code>前一个石头跳到当前位置距离差距</code>只有1内, 那么这个可能性存在</li>
+<li>首先很明确每一个点由上一个点跳跃过来的有可能的最大值就是这个点的 index (画一下就知道了)</li>
+<li><strong>!<strong>上述方程: 第一层 arr 表示 index (i 是当前 ind, j 为上一个, 也可能再上一个等等), 第二层 arr 表示之前的</strong>所有有可能的石头位置</strong>跳到当前 ind 所用的距离. (如果是某个距离,则在该距离对应的 ind 下标记为 true, 表明他可能是由前面的某个石头花了 k 个距离跳来的)</li>
+<li>从等号右边找对应, 如果<code>之前的(所有的可能性, 后面会用到遍历, 注意j不仅仅只是上一个)石头跳到前一个石头的距离</code>和<code>前一个石头跳到当前位置距离差距</code>只有 1 内, 那么这个可能性存在</li>
 </ol>
-<h3 id="上代码"><a href="#上代码" class="headerlink" title="上代码"></a>上代码</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * @param &#123;number[]&#125; stones</span><br><span class="line"> * @return &#123;boolean&#125;</span><br><span class="line"> */</span><br><span class="line">var canCross = function(stones) &#123;</span><br><span class="line">    let n = stones.length;</span><br><span class="line">    let dp = new Array(n).fill(0).map(()=&gt;new Array(n).fill(0))</span><br><span class="line">    dp[0][0] = true</span><br><span class="line">    </span><br><span class="line">    for (let i = 1; i &lt; n; i++)&#123;</span><br><span class="line">        if (stones[i] - stones[i-1] &gt; i) return false</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    for (let i = 1; i &lt; n; i++)&#123;</span><br><span class="line">        for (let j = i-1; j &gt;= 0; j--)&#123;</span><br><span class="line">            console.log(&#x27;新的j&#x27;, j, &#x27;i为&#x27;, i)</span><br><span class="line">            let diff = stones[i] - stones[j] // 当前i和之前的某一个i(j)的距离, 下一次遍历则是比较再前一个(j--), 如果再前一个也可以跳到这里, 那么这个差距也存储 (相当于把能跳到这里的所有可能的跳跃距离都存上了!)</span><br><span class="line">            if (diff &gt; j + 1) break // 如果扫描到离得很远以至于diff比ind差更远的,就直接跳过啦</span><br><span class="line">            dp[i][diff] =  dp[j][diff - 1] || dp[j][diff] || dp[j][diff + 1] (注意这里不仅比较一个j,还有j--, 比较所有j能跳到这里的距离, 相当于如果前一个距离这里太近还不到diff-1(不符合), 则下一次遍历会去找到j--,相当于再前一个跳到这里的距离)</span><br><span class="line">            if (dp[i][diff] &amp;&amp; i === n-1) return true</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    return false</span><br><span class="line">    </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
+<h3 id="上代码"><a href="#上代码" class="headerlink" title="上代码"></a>上代码</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * @param &#123;number[]&#125; stones</span><br><span class="line"> * @return &#123;boolean&#125;</span><br><span class="line"> */</span><br><span class="line">var canCross = function(stones) &#123;</span><br><span class="line">    let n = stones.length;</span><br><span class="line">    let dp = new Array(n).fill(0).map(()=&gt;new Array(n).fill(0))</span><br><span class="line">    dp[0][0] = true</span><br><span class="line"></span><br><span class="line">    for (let i = 1; i &lt; n; i++)&#123;</span><br><span class="line">        if (stones[i] - stones[i-1] &gt; i) return false</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    for (let i = 1; i &lt; n; i++)&#123;</span><br><span class="line">        for (let j = i-1; j &gt;= 0; j--)&#123;</span><br><span class="line">            let diff = stones[i] - stones[j] // 当前i和之前的某一个i(j)的距离, 下一次遍历则是比较再前一个(j--), 如果再前一个也可以跳到这里, 那么这个差距也存储 (相当于把能跳到这里的所有可能的跳跃距离都存上了!)</span><br><span class="line">            if (diff &gt; j + 1) break // 如果扫描到离得很远以至于diff比ind差更远的,就直接跳过啦</span><br><span class="line">            dp[i][diff] =  dp[j][diff - 1] || dp[j][diff] || dp[j][diff + 1] // 注意这里不仅比较一个j,还有j--, 比较所有j能跳到这里的距离, 相当于如果前一个距离这里太近还不到diff-1(不符合), 则下一次遍历会去找到j--,相当于再前一个跳到这里的距离)</span><br><span class="line">            if (dp[i][diff] &amp;&amp; i === n-1) return true</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return false</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -376,7 +381,7 @@ dp[i][k] = dp[j][k-1] || dp[j][k] || dp[j][k+1]
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-07-14 23:22:13" itemprop="dateModified" datetime="2022-07-14T23:22:13-04:00">2022-07-14</time>
+      <time title="Modified: 2022-07-18 19:21:23" itemprop="dateModified" datetime="2022-07-18T19:21:23-04:00">2022-07-18</time>
     </span>
 
   
@@ -532,7 +537,7 @@ Explanation: From the top-left corner, there are a total of 3 ways to reach the 
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-07-14 23:22:13" itemprop="dateModified" datetime="2022-07-14T23:22:13-04:00">2022-07-14</time>
+      <time title="Modified: 2022-07-18 19:21:23" itemprop="dateModified" datetime="2022-07-18T19:21:23-04:00">2022-07-18</time>
     </span>
 
   
@@ -644,7 +649,7 @@ Explanation: From the top-left corner, there are a total of 3 ways to reach the 
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-07-14 23:22:13" itemprop="dateModified" datetime="2022-07-14T23:22:13-04:00">2022-07-14</time>
+      <time title="Modified: 2022-07-18 19:21:23" itemprop="dateModified" datetime="2022-07-18T19:21:23-04:00">2022-07-18</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -771,7 +776,7 @@ Explanation: From the top-left corner, there are a total of 3 ways to reach the 
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-07-14 23:22:13" itemprop="dateModified" datetime="2022-07-14T23:22:13-04:00">2022-07-14</time>
+      <time title="Modified: 2022-07-18 19:21:23" itemprop="dateModified" datetime="2022-07-18T19:21:23-04:00">2022-07-18</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -904,7 +909,7 @@ Explanation: From the top-left corner, there are a total of 3 ways to reach the 
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-07-14 23:22:13" itemprop="dateModified" datetime="2022-07-14T23:22:13-04:00">2022-07-14</time>
+      <time title="Modified: 2022-07-18 19:21:23" itemprop="dateModified" datetime="2022-07-18T19:21:23-04:00">2022-07-18</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1040,7 +1045,7 @@ Explanation: From the top-left corner, there are a total of 3 ways to reach the 
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-07-14 23:22:13" itemprop="dateModified" datetime="2022-07-14T23:22:13-04:00">2022-07-14</time>
+      <time title="Modified: 2022-07-18 19:21:23" itemprop="dateModified" datetime="2022-07-18T19:21:23-04:00">2022-07-18</time>
     </span>
 
   
