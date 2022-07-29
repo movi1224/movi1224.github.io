@@ -43,8 +43,8 @@ The test cases are generated so that the answer will be less than or equal to 2 
     `d p [ i ] [ j ] = d p [ i − 1 ] [ j ] + d p [ i ] [ j − 1 ]`
 
 3. **复杂度分析:**
-- 时间复杂度：*O(mn)*。遍历dp数组进行动态规划。
-- 空间复杂度：*O(mn)*。创建的dp数组的大小。 
+- 时间复杂度：*O(mn)* 遍历dp数组进行动态规划。
+- 空间复杂度：*O(mn)* 创建的dp数组的大小。 
 
 * ### 好理解版本
 
