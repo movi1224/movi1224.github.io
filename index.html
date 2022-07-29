@@ -255,7 +255,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-07-29 17:06:53" itemprop="dateModified" datetime="2022-07-29T17:06:53-04:00">2022-07-29</time>
+      <time title="Modified: 2022-07-29 17:08:32" itemprop="dateModified" datetime="2022-07-29T17:08:32-04:00">2022-07-29</time>
     </span>
 
   
@@ -300,26 +300,14 @@
           <h2 id="403-Frog-Jump-Hard"><a href="#403-Frog-Jump-Hard" class="headerlink" title="403. Frog Jump (Hard)"></a>403. Frog Jump (Hard)</h2><h3 id="Question"><a href="#Question" class="headerlink" title="Question:"></a>Question:</h3><p>A frog is crossing a river. The river is divided into some number of units, and at each unit, there may or may not exist a stone. The frog can jump on a stone, but it must not jump into the water.</p>
 <p>Given a list of <code>stones</code>‘ positions (in units) in sorted <strong>ascending order</strong>, determine if the frog can cross the river by landing on the last stone. Initially, the frog is on the first stone and assumes the first jump must be <code>1</code> unit.</p>
 <p>If the frog’s last jump was <code>k</code> units, its next jump must be either <code>k - 1</code>, <code>k</code>, or <code>k + 1</code> units. The frog can only jump in the forward direction.</p>
-<h3 id="Example-1"><a href="#Example-1" class="headerlink" title="Example 1:"></a>Example 1:</h3><pre><code>Input: stones = [0,1,3,5,6,8,12,17]
-Output: true
-Explanation: The frog can jump to the last stone by jumping 1 unit to the 2nd stone, then 2 units to the 3rd stone, then 2 units to the 4th stone, then 3 units to the 6th stone, 4 units to the 7th stone, and 5 units to the 8th stone.
-</code></pre>
-<h3 id="Example-2"><a href="#Example-2" class="headerlink" title="Example 2:"></a>Example 2:</h3><pre><code>Input: stones = [0,1,2,3,4,8,9,11]
-Output: false
-Explanation: There is no way to jump to the last stone as the gap between the 5th and 6th stone is too large.
-</code></pre>
-<h3 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h3><p><strong>动态规划</strong></p>
-<pre><code>状态转移方程：
-dp[i][k] = dp[j][k-1] || dp[j][k] || dp[j][k+1]
-</code></pre>
-<p><strong>解析</strong></p>
-<ol>
-<li>首先很明确每一个点由上一个点跳跃过来的有可能的最大值就是这个点的 index (画一下就知道了)</li>
-<li><strong>!<strong>上述方程: 第一层 arr 表示 index (i 是当前 ind, j 为上一个, 也可能再上一个等等), 第二层 arr 表示之前的</strong>所有有可能的石头位置</strong>跳到当前 ind 所用的距离. (如果是某个距离,则在该距离对应的 ind 下标记为 true, 表明他可能是由前面的某个石头花了 k 个距离跳来的)</li>
-<li>从等号右边找对应, 如果<code>之前的(所有的可能性, 后面会用到遍历, 注意j不仅仅只是上一个)石头跳到前一个石头的距离</code>和<code>前一个石头跳到当前位置距离差距</code>只有 1 内, 那么这个可能性存在</li>
-</ol>
-<h3 id="上代码"><a href="#上代码" class="headerlink" title="上代码"></a>上代码</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * @param &#123;number[]&#125; stones</span><br><span class="line"> * @return &#123;boolean&#125;</span><br><span class="line"> */</span><br><span class="line">var canCross = function(stones) &#123;</span><br><span class="line">    let n = stones.length;</span><br><span class="line">    let dp = new Array(n).fill(0).map(()=&gt;new Array(n).fill(0))</span><br><span class="line">    dp[0][0] = true</span><br><span class="line"></span><br><span class="line">    for (let i = 1; i &lt; n; i++)&#123;</span><br><span class="line">        if (stones[i] - stones[i-1] &gt; i) return false</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    for (let i = 1; i &lt; n; i++)&#123;</span><br><span class="line">        for (let j = i-1; j &gt;= 0; j--)&#123;</span><br><span class="line">            let diff = stones[i] - stones[j] // 当前i和之前的某一个i(j)的距离, 下一次遍历则是比较再前一个(j--), 如果再前一个也可以跳到这里, 那么这个差距也存储 (相当于把能跳到这里的所有可能的跳跃距离都存上了!)</span><br><span class="line">            if (diff &gt; j + 1) break // 如果扫描到离得很远以至于diff比ind差更远的,就直接跳过啦</span><br><span class="line">            dp[i][diff] =  dp[j][diff - 1] || dp[j][diff] || dp[j][diff + 1] // 注意这里不仅比较一个j,还有j--, 比较所有j能跳到这里的距离, 相当于如果前一个距离这里太近还不到diff-1(不符合), 则下一次遍历会去找到j--,相当于再前一个跳到这里的距离)</span><br><span class="line">            if (dp[i][diff] &amp;&amp; i === n-1) return true</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return false</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/07/15/LeetCode-403-Frog-Jump/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -381,7 +369,7 @@ dp[i][k] = dp[j][k-1] || dp[j][k] || dp[j][k+1]
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-07-29 17:06:53" itemprop="dateModified" datetime="2022-07-29T17:06:53-04:00">2022-07-29</time>
+      <time title="Modified: 2022-07-29 17:08:32" itemprop="dateModified" datetime="2022-07-29T17:08:32-04:00">2022-07-29</time>
     </span>
 
   
@@ -426,56 +414,14 @@ dp[i][k] = dp[j][k-1] || dp[j][k] || dp[j][k+1]
           <h2 id="62-Unique-Paths-Med"><a href="#62-Unique-Paths-Med" class="headerlink" title="62. Unique Paths (Med)"></a>62. Unique Paths (Med)</h2><h3 id="Question"><a href="#Question" class="headerlink" title="Question:"></a>Question:</h3><p>There is a robot on an <code>m x n</code> grid. The robot is initially located at the top-left corner (i.e., <code>grid[0][0]</code>). The robot tries to move to the bottom-right corner (i.e., <code>grid[m - 1][n - 1]</code>). The robot can only move either down or right at any point in time.</p>
 <p>Given the two integers <code>m</code> and <code>n</code>, return the number of possible unique paths that the robot can take to reach the bottom-right corner.</p>
 <p>The test cases are generated so that the answer will be less than or equal to 2 * 10<sup>9</sup>.</p>
-<h3 id="Example-1"><a href="#Example-1" class="headerlink" title="Example 1:"></a>Example 1:</h3><p><img data-src="https://assets.leetcode.com/uploads/2018/10/22/robot_maze.png"></p>
-<pre><code>Input: m = 3, n = 7
-Output: 28
-</code></pre>
-<h3 id="Example-2"><a href="#Example-2" class="headerlink" title="Example 2:"></a>Example 2:</h3><pre><code>Input: m = 3, n = 2
-Output: 3
-Explanation: From the top-left corner, there are a total of 3 ways to reach the bottom-right corner:
-1. Right -&gt; Down -&gt; Down
-2. Down -&gt; Down -&gt; Right
-3. Down -&gt; Right -&gt; Down
-</code></pre>
-<h3 id="解法"><a href="#解法" class="headerlink" title="解法:"></a>解法:</h3><ol>
-<li><p><strong>理解:</strong> 不难发现，机器人从左上角走到右下角，需要向下走<code>m - 1</code>步，向右走<code>n - 1</code>步</p>
-</li>
-<li><p><strong>动态规划:</strong></p>
-</li>
-</ol>
-<ul>
-<li><p>建立二维数组dp，令<code>dp[i][j]</code>表示到达 i, j的最多路径数。 </p>
-</li>
-<li><p>初始化：对于第一行 <code>dp[0][j]</code>，或者第一列 <code>dp[i][0]</code>，都只有一条路径。 </p>
-</li>
-<li><p>机器人到达位置<code>(i, j)</code>有两种方式：从<code>(i - 1, j)</code>下移和从<code>(i, j - 1)</code>右移。状态转移方程为： </p>
-<p>  <code>d p [ i ] [ j ] = d p [ i − 1 ] [ j ] + d p [ i ] [ j − 1 ]</code></p>
-</li>
-</ul>
-<ol start="3">
-<li><strong>复杂度分析:</strong></li>
-</ol>
-<ul>
-<li>时间复杂度：<em>O(mn)</em> 遍历dp数组进行动态规划。</li>
-<li>空间复杂度：<em>O(mn)</em> 创建的dp数组的大小。</li>
-</ul>
-<ul>
-<li><h3 id="好理解版本"><a href="#好理解版本" class="headerlink" title="好理解版本"></a>好理解版本</h3></li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * @param &#123;number&#125; m</span><br><span class="line"> * @param &#123;number&#125; n</span><br><span class="line"> * @return &#123;number&#125;</span><br><span class="line"> */</span><br><span class="line">var uniquePaths = function(m, n) &#123;</span><br><span class="line">    // 创建容器数组</span><br><span class="line">    let dp = Array(m).fill(0).map(() =&gt; Array(n).fill(0))</span><br><span class="line"></span><br><span class="line">    // 最上一行和最下一行初始值为1</span><br><span class="line">    for (let i = 0; i &lt; m; i++)&#123;</span><br><span class="line">        for (let j = 0; j &lt; n; j++)&#123;</span><br><span class="line">            if (i === 0 | j === 0) dp[i][j] = 1</span><br><span class="line">            else&#123;</span><br><span class="line">                dp[i][j] = dp[i-1][j] + dp[i][j-1]</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return dp[m-1][n-1]</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">// 速度 &gt; 80%, 空间 &gt; 40%</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><h3 id="最优版本"><a href="#最优版本" class="headerlink" title="最优版本"></a>最优版本</h3></li>
-</ul>
-<p><em><strong>接下来，还可以将时间复杂度由O(n^2)优化为O(n)，主要由于状态转移方程中，当前状态主要取决于(i - 1)行和(j - 1)列，所以并不需要保存每一行的状态</strong></em></p>
-<p><em><strong>dp可以优化为一维滚动数组。当第i次遍历到dp[j]时，dp[j]表示到达(i, j)最多的路径数。递推公式为： d p [ j ] + &#x3D; d p [ j − 1 ]</strong></em></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">var uniquePaths = function(m, n) &#123;</span><br><span class="line">    // 创建容器数组</span><br><span class="line">    let dp = Array(n).fill(0)</span><br><span class="line">    dp[0] = 1</span><br><span class="line"></span><br><span class="line">    // 最上一行和最下一行初始值为1</span><br><span class="line">    for (let i = 0; i &lt; m; i++)&#123;</span><br><span class="line">        for (let j = 1; j &lt; n; j++)&#123;</span><br><span class="line">            dp[j] += dp[j-1]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return dp[n-1]</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">// 速度 &gt; 95%, 空间 &gt; 90%</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/07/12/LeetCode-62-Unique-Paths/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -537,7 +483,7 @@ Explanation: From the top-left corner, there are a total of 3 ways to reach the 
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-07-29 17:06:53" itemprop="dateModified" datetime="2022-07-29T17:06:53-04:00">2022-07-29</time>
+      <time title="Modified: 2022-07-29 17:08:32" itemprop="dateModified" datetime="2022-07-29T17:08:32-04:00">2022-07-29</time>
     </span>
 
   
@@ -579,7 +525,8 @@ Explanation: From the top-left corner, there are a total of 3 ways to reach the 
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="两种方法"><a href="#两种方法" class="headerlink" title="两种方法"></a>两种方法</h2>
+          <h2 id="两种方法"><a href="#两种方法" class="headerlink" title="两种方法"></a>两种方法</h2><h3 id="第一种方法"><a href="#第一种方法" class="headerlink" title="第一种方法"></a>第一种方法</h3><ul>
+<li><p>在配置文件**_config.yml**里修改：<code>post_asset_folder: true</code></p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2022/07/11/Hexo%E4%B8%AD%E6%B7%BB%E5%8A%A0%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87/#more" rel="contents">
@@ -649,7 +596,7 @@ Explanation: From the top-left corner, there are a total of 3 ways to reach the 
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-07-29 17:06:53" itemprop="dateModified" datetime="2022-07-29T17:06:53-04:00">2022-07-29</time>
+      <time title="Modified: 2022-07-29 17:08:32" itemprop="dateModified" datetime="2022-07-29T17:08:32-04:00">2022-07-29</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -776,7 +723,7 @@ Explanation: From the top-left corner, there are a total of 3 ways to reach the 
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-07-29 17:06:53" itemprop="dateModified" datetime="2022-07-29T17:06:53-04:00">2022-07-29</time>
+      <time title="Modified: 2022-07-29 17:08:32" itemprop="dateModified" datetime="2022-07-29T17:08:32-04:00">2022-07-29</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -909,7 +856,7 @@ Explanation: From the top-left corner, there are a total of 3 ways to reach the 
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-07-29 17:06:53" itemprop="dateModified" datetime="2022-07-29T17:06:53-04:00">2022-07-29</time>
+      <time title="Modified: 2022-07-29 17:08:32" itemprop="dateModified" datetime="2022-07-29T17:08:32-04:00">2022-07-29</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1045,7 +992,7 @@ Explanation: From the top-left corner, there are a total of 3 ways to reach the 
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-07-29 17:06:53" itemprop="dateModified" datetime="2022-07-29T17:06:53-04:00">2022-07-29</time>
+      <time title="Modified: 2022-07-29 17:08:32" itemprop="dateModified" datetime="2022-07-29T17:08:32-04:00">2022-07-29</time>
     </span>
 
   
